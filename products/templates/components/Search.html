@@ -1,0 +1,37 @@
+<form id="search_form" method="post" class="flex items-center">
+  <input
+    id="search_input"
+    type="search"
+    name="search_input"
+    placeholder="Search by name"
+    class="h-11 w-52 border-2 border-primaryColor p-2 rounded-xl outline-none bg-bgColor "
+  />
+  <div class="w-2"></div>
+  <button title="search" type="submit" class="hover:bg-primaryColor/60 h-10 w-10 rounded-full flex items-center justify-center">
+   <i class="fas fa-search" style="color: #ffffff;"></i>
+  </button>
+</form>
+
+<script>
+  // Get references to the form and input field
+  const searchForm = document.getElementById('search_form');
+  const searchInput = document.getElementById('search_input');
+
+  // Add a submit event listener to the form
+  searchForm.addEventListener('submit', function (event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Get the value from the input field
+    const searchValue = searchInput.value;
+
+    // Construct the new URL with the search query parameter
+    const newURL = "{{ url_for('products.handle_search') }}?search=" + encodeURIComponent(searchValue);
+
+    // Set the form's action attribute to the new URL
+    searchForm.action = newURL;
+
+    // Submit the form with the updated action
+    searchForm.submit();
+  });
+</script>
