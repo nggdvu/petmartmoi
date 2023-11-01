@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --primaryColor: #8858ed;
-  --secondaryColor: #2b1f41;
-  --bgColor: #0e0e0e;
-  --textColor: #ffff;
+  --primaryColor: #d10e2b;
+  --secondaryColor: #1a0dd9;
+  --bgColor: #fafafa;
+  --textColor: #000000;
 }
 
 @font-face {
-  font-family: roboto;
-  src: url("assets/fonts/Roboto-Thin.ttf");
+  font-family: montserrat;
+  src: url("assets/fonts/Montserrat-Thin.ttf");
   font-weight: 100;
 }
 
 @font-face {
-  font-family: roboto;
-  src: url("assets/fonts/Roboto-Regular.ttf");
+  font-family: montserrat;
+  src: url("assets/fonts/Montserrat-Regular.ttf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: roboto;
-  src: url("assets/fonts/Roboto-Medium.ttf");
+  font-family: montserrat;
+  src: url("assets/fonts/Montserrat-Medium.ttf");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: roboto;
-  src: url("assets/fonts/Roboto-Bold.ttf");
+  font-family: montserrat;
+  src: url("assets/fonts/Montserrat-Bold.ttf");
   font-weight: 700;
 }
 
@@ -37,7 +37,7 @@
 html {
   margin: 0;
   padding: 0;
-  font-family: roboto;
+  font-family: montserrat;
   color: var(--textColor);
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #b2b4b6d0;
+  background-color: #fafafa;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
