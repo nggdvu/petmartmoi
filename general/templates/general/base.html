@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../../static/output.css">
     <link rel="stylesheet" href="../../../static/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="static/assets/img/favicon-32x32.png">
     <title>PetMart | Trang chủ</title>
   </head>
 
@@ -69,7 +70,7 @@
           <div class="navbar-user md:ml-3 lg:ml-11 flex items-center">
             {% if session['current_user'] %}
             <a href="#" class="user-auth group md:flex items-center mr-6">
-              <i class="fa-solid fa-user-nurse text-2xl mr-4"></i>
+              <i class="fa-solid fa-user-alt text-xl mr-4"></i>
               <span class="group-hover:text-primaryColor transition-all px-1 py-8 absolute hidden">
                 {{ session['current_user']['name'] }}
                 <span class="currency absolute hidden group-hover:inline-block ml-2">
@@ -84,8 +85,8 @@
             {% endif %}
             <div class="relative group p-2">
               <a href={{ url_for('cart.index') }} class="user-cart relative flex items-center">
-                <i class="fa-solid fa-cart-shopping md:text-xl">
-                  <p class="cart-quantity absolute text-xs md:text-base px-1 md:px-2 -top-2 
+                <i class="fa-solid fa-cart-flatbed-suitcase md:text-xl">
+                  <p class="cart-quantity absolute text-xs md:text-base px-1\\\]ư\ md:px-2 -top-2 
                   left-3 md:-top-4 md:left-4 h-auto md:h-6 text-[#461751] bg-white border-2 border-solid
                   border-[#461751] min-w-[12px] md:min-w-[36px] text-center font-medium rounded-2xl">
                     {{ session['cart_length'] }}
