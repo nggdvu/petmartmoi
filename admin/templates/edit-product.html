@@ -18,7 +18,7 @@
           id="name"
           name="name"
           type="text"
-          value="{{game_query.name}}"
+          value="{{products_query.name}}"
           class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-lg border-2 border-primaryColor"
         />
       </div>
@@ -30,7 +30,7 @@
           rows="5"
           class="bg-transparent max-w-[400px] outline-none resize-none border-2 border-primaryColor rounded-lg p-2"
         >
-{{game_query.description}}</textarea
+{{products_query.description}}</textarea
         >
       </div>
       <div class="flex flex-col mb-3">
@@ -39,7 +39,7 @@
           name="price"
           id="price"
           type="number"
-          value="{{game_query.price}}"
+          value="{{products_query.price}}"
           class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-lg border-2 border-primaryColor"
         />
       </div>
@@ -49,27 +49,27 @@
           id="image_url"
           name="image_url"
           type="text"
-          value="{{game_query.image}}"
+          value="{{products_query.image}}"
           class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-lg border-2 border-primaryColor"
         />
       </div>
 
       <div class="flex flex-col mb-3">
-        <label for="image_url" class="my-2 font-bold">Publisher</label>
+        <label for="image_url" class="my-2 font-bold">brand</label>
         <select
-          name="publisher"
-          id="publisher"
+          name="brand"
+          id="brand"
           class="bg-transparent border-2 border-primaryColor w-full max-w-[400px] p-2 h-10 outline-none rounded-lg"
         >
-          <option value="{{publisher.id}}" hidden>
-            {{publisher.publisher_name}}
+          <option value="{{brand.id}}" hidden>
+            {{brand.brand_name}}
           </option>
-          {% for publisher in publishers_query%}
+          {% for brand in brands_query%}
           <option
-            value="{{publisher.id}}"
+            value="{{brand.id}}"
             class="bg-secondaryColor"
           >
-            {{publisher.publisher_name}}
+            {{brand.brand_name}}
           </option>
           {% endfor %}
         </select>
@@ -79,7 +79,7 @@
       <div
         class="flex flex-col mb-3 rounded-lg border-2 border-primaryColor p-2 w-full max-w-[400px]"
       >
-        {% for platform in platforms_of_game%}
+        {% for platform in platforms_of_products%}
         <div class="flex items-center">
           <input
             type="checkbox"
@@ -99,7 +99,7 @@
       <div
         class="flex flex-col mb-3 rounded-lg border-2 w-full max-w-[400px] border-primaryColor p-2 max-h-[200px] overflow-auto"
       >
-        {% for genre in genres_of_game%}
+        {% for genre in genres_of_products%}
         <div class="flex items-center">
           <input
             checked
@@ -116,7 +116,7 @@
       </div>
     </div>
     <img
-      src="{{game_query.image}}"
+      src="{{products_query.image}}"
       alt="image"
       class="h-[500px] aspect-[9/13] object-cover rounded-lg"
     />
