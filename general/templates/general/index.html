@@ -10,44 +10,30 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!--HERO SECTION-->
     <div id="hero-section">
-            <div class="hero-container flex justify-between px-24">
-                <div
-                class="hero-content mt-52 h-[396px] w-[610px] rounded-3xl pt-10 pb-11"
-                style="background-color: #fafafa">
-                    <h1 class="logo">
-                        <img src="static/assets/img/themepic-07.png" alt="petmart big" class="w-full">
-                    </h1>
+            <div class="hero-container flex justify-center px-24">
+                <div class="themepic mt-8 mb-8 pt-10 pb-10">
+                    <img src="static/assets/img/themepic-07.png" alt="themepic" class="w-[300px]">
                 </div>
-                <div
-                class="hero-content mt-52 h-[396px] w-[610px] rounded-3xl pt-10 pb-11 pl-20"
+                <div class="hero-content mt-8 pt-10 pb-10 pl-20"
                 style="background-color: #fafafa">
                     <p class="text-base font-semibold mb-5">HỆ THỐNG CỬA HÀNG THÚ CƯNG</p>
-                    <h1 class="logo">
-                        <img src="../../../static/assets/img/logo-01.png" alt="petmart big" class="w-56">
-                    </h1>
+                    <img src="../../../static/assets/img/logo-01.png" alt="petmart big" class="w-56">
                     <p class="text-justify mt-5">Pet Mart là chuỗi pet shop thú cưng chuyên cung cấp đồ dùng, quần áo, thức ăn, sữa tắm, chuồng, vòng cổ xích và các phụ kiện cho Chó cảnh, Mèo cảnh, Cá cảnh. Đồng thời là địa chỉ nhận tắm spa, chăm sóc, cắt tỉa lông và trông giữ thú cưng chuyên nghiệp. Chia sẻ kinh nghiệm chăm sóc Thỏ cảnh, Chuột cảnh, Sóc cảnh, Chim cảnh, Bò sát cảnh.<br/>
                         <br/>
                         Thành lập vào năm 2012, tới nay Pet Mart đã có mặt ở hầu hết các tỉnh, thành trên cả nước. Đặc biệt là các thành phố lớn như Hà Nội, TP. HCM, Đà Nẵng... Đây cũng chính là hệ thống cửa hàng thú cưng lớn nhất trên cả nước.<br/>
                         <br/>
                         Với chất lượng dịch vụ tốt nhất, luôn được khách hàng tin tưởng, Pet Mart sẽ là điểm đến lý tưởng và tuyệt vời dành cho vật nuôi.</p>
-                    <div class="button flex md:flex">
-                    <ul>
-                        <li>
-                            <a href={{ url_for('products.product_detail', product_id=products_hero_section.id) }} 
-                            class="block mt-5 w-[132px] min-h-12 bg-white text-primaryColor 
-                            font-bold py-2 px-8 text-center rounded-[35px]
-                            hover:text-white hover:bg-primaryColor bor
-                            border-2 border-solid border-white transition-all duration-200">Đặt lịch</a>
-                        </li>
-                        <li>
-                            <a href={{ url_for('products.product_detail', product_id=products_hero_section.id) }} 
-                            class="block mt-5 w-[132px] min-h-12 bg-white text-primaryColor 
-                            font-bold py-2 px-8 text-center rounded-[35px]
-                            hover:text-white hover:bg-primaryColor bor
-                            border-2 border-solid border-white transition-all duration-200">Tư vấn</a>  
-                        </li>
-                    </ul>
-                    </div>
+                        <div class="flex md:flex">
+                            <a href="{{ url_for('products.product_detail', product_id=products_hero_section.id) }}" 
+                            class="block mt-5 mr-2 w-44 min-h-12 text-black
+                            font-bold py-2 px-8 text-center rounded-[35px] border-black border-2  hover:text-white hover:bg-primaryColor
+                           transition-all duration-200">Đi tới cửa hàng</a>
+                           <a href="{{ url_for('products.product_detail', product_id=products_hero_section.id) }}" 
+                            class="block mt-5 mr-2 w-[200px] min-h-12 text-black
+                            font-bold py-2 pl-8 px-8 text-center rounded-[35px] hover:text-primaryColor
+                           transition-all duration-200">Liên hệ tư vấn</a>
+                             
+                        </div>
                 </div>
             </div>
             <div class="w-full bg-bgColor h-28"></div>
