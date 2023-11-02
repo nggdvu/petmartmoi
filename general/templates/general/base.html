@@ -107,15 +107,15 @@
                   {% if (session['cart_length'] <= 0) %}
                     <p class="text-sm italic p-4 text-center">Your cart is empty now</p>
                   {% else %}
-                    {% for game in session['cart'] %}
+                    {% for products in session['cart'] %}
                     <div class="px-3 py-2 first-of-type:pt-4 last:pb-4 flex gap-4 hover:bg-[#3e2d5c]">
                       <div class="h-20 shrink-0 overflow-hidden">
-                        <img src={{ game['image'] }} alt="{{ game['image'] }}"
+                        <img src={{ products['image'] }} alt="{{ products['image'] }}"
                         class="h-full object-cover rounded" style="aspect-ratio: 4/5">
                       </div>
                       <div class="grow flex justify-between">
-                        <p class="text-sm w-40">{{ game['name'] }}</p>
-                        <p class="text-sm font-semibold">{{ game['price'] | currency}}</p>
+                        <p class="text-sm w-40">{{ products['name'] }}</p>
+                        <p class="text-sm font-semibold">{{ products['price'] | currency}}</p>
                       </div>
                     </div>
                     {% endfor %}

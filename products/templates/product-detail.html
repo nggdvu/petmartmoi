@@ -9,40 +9,40 @@
       <img
         style="aspect-ratio: 9/12"
         class="w-72 sm:w-80 rounded-xl object-cover mb-5"
-        src="{{game_query.image}}"
+        src="{{products_query.image}}"
         alt="image"
       />
       <div class="w-10"></div>
       <div class="flex flex-col">
-        <h1 class="font-bold text-2xl sm:text-4xl mb-5">{{game_query.name}}</h1>
+        <h1 class="font-bold text-2xl sm:text-4xl mb-5">{{products_query.name}}</h1>
         <p class="mb-5 text-lg">
-          <b>Price: </b>{{ '{:,.0f}'.format(game_query.price).replace(',', '.')
+          <b>Price: </b>{{ '{:,.0f}'.format(products_query.price).replace(',', '.')
           }} vnđ
         </p>
         <p class="mb-5 text-lg">
           <b>Platform: </b>
-          {% for platform in platforms_of_game%} {{platform.platform_name}} {%
+          {% for platform in platforms_of_products%} {{platform.platform_name}} {%
           if not loop.last %}, {% endif %} {% endfor %}
         </p>
         <p class="mb-5 text-lg">
-          <b>Publisher: </b>
-          {{publisher.publisher_name}}
+          <b>brand: </b>
+          {{brand.brand_name}}
         </p>
         <p class="mb-5 text-lg">
           <b>Genres: </b>
-          {% for genre in genres_of_game%} {{genre.genre_name}} {% if not
+          {% for genre in genres_of_products%} {{genre.genre_name}} {% if not
           loop.last %}, {% endif %} {% endfor %}
         </p>
 
         <p class="w-72 sm:w-full max-w-[400px] text-justify">
           <b>Return and Refund Policy: </b>
-          DG-Games refund offer, within two weeks of purchase and with less than
-          two hours of playtime, applies to games and software applications on
-          the DG-Games store. Here is an overview of how refunds work with other
+          DG-productss refund offer, within two weeks of purchase and with less than
+          two hours of playtime, applies to productss and software applications on
+          the DG-productss store. Here is an overview of how refunds work with other
           types of purchases.
         </p>
         <form action={{ url_for('cart.cart_add') }} method="POST">
-          <input type="hidden" name="product_id" value="{{game_id}}">         
+          <input type="hidden" name="products_id" value="{{products_id}}">         
           <button
             class="font-bold px-20 py-2 bg-purple-500 hover:bg-purple-700 duration-300 rounded-full my-5"
           >
@@ -51,7 +51,7 @@
         </form>
       </div>
     </div>
-    <p class="max-w-2xl my-5 px-2 text-justify">{{game_query.description}}</p>
+    <p class="max-w-2xl my-5 px-2 text-justify">{{products_query.description}}</p>
   </div>
 </div>
 {% endblock %}

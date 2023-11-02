@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from utils.tools import format_currency
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dggames.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///petmart_db.db'
 app.config['SECRET_KEY'] = '1fbd57e31d0ffb68ccbeb56c'
 
 db = SQLAlchemy(app)

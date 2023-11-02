@@ -9,7 +9,7 @@
   <table class="w-full max-w-[1500px] text-sm text-left text-gray-400 mx-auto">
     <thead class="text-xs uppercase bg-primaryColor text-gray-400">
       <tr class="">
-        <th scope="col" class="px-6 py-3">Game name</th>
+        <th scope="col" class="px-6 py-3">products name</th>
         <th scope="col" class="px-6 py-3">Description</th>
         <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Price</th>
@@ -22,19 +22,19 @@
       </tr>
     </thead>
     <tbody>
-      {% for game in games_query%}
+      {% for products in products_query%}
       <tr class="border-b bg-secondaryColor border-gray-700 hover:bg-gray-600">
         <th scope="row" class="px-6 py-4 font-medium max-w-[300px] truncate">
-          {{game.name}}
+          {{products.name}}
         </th>
-        <td class="px-6 py-4 max-w-[400px] truncate">{{game.description}}</td>
+        <td class="px-6 py-4 max-w-[400px] truncate">{{products.description}}</td>
         <td class="px-6 py-4 max-w-[400px] truncate">
-          <a href="{{game.image}}" target="_blank">{{game.image}}</a>
+          <a href="{{products.image}}" target="_blank">{{products.image}}</a>
         </td>
-        <td class="px-6 py-4">{{ game.price | currency }}</td>
+        <td class="px-6 py-4">{{ products.price | currency }}</td>
         <td class="px-6 py-4 text-right">
           <a
-            href="{{ url_for('admin.edit_product', product_id = game.id) }}"
+            href="{{ url_for('admin.edit_products', products_id = products.id) }}"
             class="font-medium text-blue-500 hover:underline"
             >Edit</a
           >
@@ -42,7 +42,7 @@
         <td class="px-6 py-4 text-right">
           <form
             id="delete_form"
-            action="{{ url_for('admin.delete_product', product_id = game.id) }}"
+            action="{{ url_for('admin.delete_products', products_id = products.id) }}"
             method="post"
           >
             <button
