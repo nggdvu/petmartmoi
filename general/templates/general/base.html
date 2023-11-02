@@ -45,7 +45,7 @@
               <a href={{ url_for('products.index') }} class="px-1 pt-8">SIÊU THỊ THÚ CƯNG</a>
             </li>
             <li class="nav-item hover:text-primaryColor font-semibold mx-3 transition-all">
-              <a href={{ url_for('cart.index') }} class="px-1 pt-8">HỆ THỐNG CỬA HÀNG</a>
+              <a href={{ url_for('products.index') }} class="px-1 pt-8">HỆ THỐNG CỬA HÀNG</a>
             </li>
             <li class="nav-item group mx-3 transition-all relative">
               <span class="px-1 pt-8 group-hover:text-primaryColor font-semibold
@@ -67,7 +67,7 @@
               </ul>
             </li>
           </ul>
-          <div class="navbar-user md:ml-3 lg:ml-11 pl-10 flex items-center">
+          <div class="navbar-user md:ml-3 lg:ml-11 flex items-center">
             {% if session['current_user'] %}
             <a href="#" class="user-auth group md:flex items-center mr-6">
               <i class="fa-solid fa-user-alt text-xl mr-4"></i>
@@ -85,16 +85,17 @@
             {% endif %}
             <div class="relative group p-2">
               <a href={{ url_for('cart.index') }} class="user-cart relative flex items-center">
-                <img src="static/assets/img/cartbutton.png" alt="cart" class="w-10 md:w-100 lg:w-36">
-                  <p class="cart-quantity absolute text-xs text-white md:text-base px-1 md:px-28 -top-2 
-                  right-0 md:-top-4 md:right-8 h-auto md:h-10 text-[#461751] bg-red-500 border-white
-                   min-w-[12px] md:min-w-[36px] text-center font-medium rounded-2xl">
+                <i class="fa-solid fa-cart-flatbed-suitcase md:text-xl">
+                  <p class="cart-quantity absolute text-xs md:text-base px-1\\\]ư\ md:px-2 -top-2 
+                  left-3 md:-top-4 md:left-4 h-auto md:h-6 text-[#461751] bg-white border-2 border-solid
+                  border-[#461751] min-w-[12px] md:min-w-[36px] text-center font-medium rounded-2xl">
                     {{ session['cart_length'] }}
                   </p>
+                </i>
               </a>
 
               <!-- POPUP CART -->
-              <div id="popup-cart" class="absolute top-10 -right-4 bg-white w-[380px] pb-4 rounded-lg shadow-lg
+              <div id="popup-cart" class="absolute top-10 -right-4 bg-secondaryColor w-[380px] pb-4 rounded-lg shadow-lg
               hidden group-hover:block
               before:block before:content-[''] before:w-0 before:h-0 before:absolute
               before:-top-1 before:right-7 before:border-b-4 before:border-x-[6px] before:border-x-transparent before:border-b-[var(--primaryColor)]
@@ -133,6 +134,33 @@
           </div>
         </div>
       </div>
+
+      <!--Mobile and Tablet Menu-->
+      <section id="mobile-menu" class="absolute top-0 w-full h-screen hidden"
+        style="backdrop-filter: blur(3px); background-color: rgba(0, 0, 0, 0.2);"
+      >
+        <div 
+          class="w-9/12 flex flex-col bg-fuchsia-900 h-full"
+          style="background-image: linear-gradient(to bottom, rgb(46,24,81,0.8) 65%, rgb(59,24,81,0.6) , rgb(70,23,81,0.5) , rgb(81,23,80,0.4));"
+        >
+          <a href={{ url_for('general.index') }} class="pt-6 pb-4 px-5 w-full">TRANG CHỦ</a>
+          <a href={{ url_for('products.index') }} class="py-4 px-5 w-full">SIÊU THỊ THÚ CƯNG</a>
+          <a href='#' class="py-4 px-5 w-full">HỆ THỐNG CỬA HÀNG</a>
+          <a href='#' class="py-4 px-5 w-full flex justify-between items-center">
+            DỊCH VỤ
+            <i class="fa-solid fa-chevron-down text-sm"></i>
+          </a>
+          <div class="h-0 overflow-hidden">
+            <div class="w-full flex flex-col">
+              <a href="#" class="py-3 px-9 w-full">Terms & Conditions</a>
+              <a href="#" class="py-3 px-9 w-full">Refund Policy</a>
+              <a href="#" class="py-3 px-9 w-full">Support</a>
+            </div>
+          </div>
+          <a href='#' class="py-4 px-5
+           w-full">Log In</a>
+        </div>
+      </section>
     </nav>
 
     <!--CONTENT-->

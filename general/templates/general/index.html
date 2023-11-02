@@ -10,26 +10,29 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!--HERO SECTION-->
     <div id="hero-section">
-            <div class="hero-container flex justify-between px-24 h-[380px overflow-visible">
-                <div class="hero-vertical-image mt-52 mr-2 w-[380px] h-[610px]
-                overflow-visible bg-no-repeat bg-cover"
-                style="background-image: url('static/assets/img/themepic-07.png')">
-                </div>
+        <div class="bg-no-repeat bg-cover bg-fixed"
+        style="background-image: url('static/assets/img/hero-image.jpg');">
+            <div class="hero-container flex justify-between px-24 h-[830px] overflow-visible">
                 <div 
                 class="hero-content mt-52 h-[396px] w-[610px] rounded-3xl pt-10 pb-11 pl-20"
-                style="background-color: #fafafa"
+                style="background-color: var(--primaryColor); box-shadow: 5px 9px 14px 5px rgba(6,5,6,0.41)"
                 >
                     <p class="text-xl mb-5">Vu dep trai vl</p>
                     <h1 class="text-7xl font-bold">RBalalala</h1>
                     <p class="text-xl mt-5">hayvcllll</p>
-                    <a href={{ url_for('products.products_detail', products_id=Thuc_an_cho_cho_con_co_nho_ROYAL_CANIN_Mini_Puppy.id) }} class="block mt-5 w-[132px] min-h-12 bg-white text-primaryColor 
+                    <a href={{ url_for('products.product_detail', products_id=products.id) }} class="block mt-5 w-[132px] min-h-12 bg-white text-primaryColor 
                     font-bold py-3 px-7 text-center rounded-[35px]
                     hover:text-white hover:bg-primaryColor 
                     border-2 border-solid border-white transition-all duration-200">Buy Now</a>
                 </div>
-                
+                <div class="hero-vertical-image mt-52 mr-8 w-[538px] h-[690px]
+                rounded-[35px] overflow-hidden bg-no-repeat bg-cover"
+                style="background-image: url('static/assets/img/hero-image-vertical.jpg'); 
+                box-shadow: 0px 6px 20px 2px rgba(120,120,120,0.4), 3px 9px 14px 5px rgba(6,5,6,0.35)">
+                </div>
             </div>
             <div class="w-full bg-bgColor h-28"></div>
+        </div>
     </div>
     
     <!--BEST SELLER SECTION-->
@@ -43,19 +46,19 @@
         <div class="carousel-container swiper w-full" style="padding: 0 96px;">
             <div class="product-carousel mt-24 overflow-hidden" style="width: 100%;">
                 <div class="swiper-wrapper" style="height:auto !important;">
-                    {% for product in products_best_seller %}
+                    {% for products in products_best_seller %}
                         <div class="swiper-slide flex flex-col items-center text-center">
-                            <a href={{ url_for('products.product_detail', product_id=product.id) }} class="group flex flex-col items-center">
+                            <a href={{ url_for('products.products_detail', products_id=products.id) }} class="group flex flex-col items-center">
                                 <div class="h-[440px] rounded-3xl overflow-hidden">
-                                    <img src={{ product.image }} alt="products Image" 
+                                    <img src={{ products.image }} alt="products Image" 
                                     class="h-full object-cover rounded-3xl group-hover:scale-125 transition-all duration-300"
                                     style="aspect-ratio: 9/12">
                                 </div>
-                                <h4 class="mt-4 w-72 text-lg font-semibold truncate">{{ product.name }}</h4>
-                                <p class="mt-2">{{ product.price|currency }}</p>
+                                <h4 class="mt-4 w-72 text-lg font-semibold truncate">{{ products.name }}</h4>
+                                <p class="mt-2">{{ products.price|currency }}</p>
                             </a>
                             <form action={{ url_for('cart.cart_add') }} method="POST">
-                                <input type="hidden" name="product_id" value="{{product.id}}">
+                                <input type="hidden" name="product_id" value="{{products.id}}">
                                 <button type="submit" class="mt-3 h-10 w-64 rounded-[35px] bg-primaryColor font-semibold hover:opacity-70 transition-all">Add to Cart</button>
                             </form>
                         </div>
@@ -68,104 +71,104 @@
     </div>
 
     <!--GENRES SECTION-->
-    <div id="genre-section" class="flex flex-col items-center px-24 mt-24 pt-20 bg-[rgb(255,255,255,1)]" 
+    <div id="genre-section" class="flex flex-col items-center px-24 mt-24 pt-20 bg-[rgb(77,77,77,0.35)]" 
     style="padding-bottom: 100px;">
         <div class="genres_header w-full mb-20 flex justify-between">
-            <h1 class="text-5xl font-semibold">BRAND</h1>
+            <h1 class="text-5xl font-semibold">BROWSE BY GENRE</h1>
             <a href={{url_for('products.index')}} class="block text-primaryColor bg-white 
             border-2 border-solid border-white w-36 h-10 font-semibold 
             text-center leading-10 rounded-[35px] hover:bg-primaryColor hover:text-white transition-all duration-200">View All</a>
         </div>
         <div class="grid grid-cols-4 gap-10">
-            <a href={{ url_for('products.filter_products', genre = "PAW") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Action") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2020/12/paw-300x300.jpg" 
+                    <img src="https://cdn2.unrealengine.com/egs-ac-mirage-carousel-desktop-1920x1080-9380e8fef189.jpg?h=720&quality=medium&resize=1&w=1280" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">PAW</p>
+                <p class="text-xl mt-3">Action</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "ROYAL CANIN") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Adventure") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://logowik.com/content/uploads/images/royal-canin2199.jpg" 
+                    <img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_9efa694175609b73e9d3dca54190cbd8f6a0bc60.600x338.jpg?t=1695060909" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">ROYAL CANIN</p>
+                <p class="text-xl mt-3">Adventure</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "CatSeaFish") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Role-playing") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2021/06/cat-sea-fish-300x300.jpg" 
+                    <img src="https://images.axios.com/JOUiw5V1Hz3yHP9v1s5BVzTCmb4=/0x0:1920x1080/1920x1080/2022/09/26/1664220539433.jpg" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">CatSeaFish</p>
+                <p class="text-xl mt-3">Role-playing</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "Pedigree") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Simulation") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2021/08/logopedigree-300x300.jpg" 
+                    <img src="https://www.kotaku.com.au/wp-content/uploads/2022/09/15/f5cfd85385282e757be2bef0bf200c5b.jpg?quality=75" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">Pedigree</p>
+                <p class="text-xl mt-3">Simulation</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "MKB") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Strategy") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2020/12/mkb-300x300.png" 
+                    <img src="https://cdn.akamai.steamstatic.com/steam/apps/2497760/ss_974412e04c3fcd48ba79f1faaecac163dbc5ab1c.600x338.jpg?t=1696924927" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">MKB</p>
+                <p class="text-xl mt-3">Strategy</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "Whiskas") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Sport") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://seeklogo.com/images/W/Whiskas-logo-1465077BB3-seeklogo.com.png" 
+                    <img src="https://cdn2.unrealengine.com/egs-easportsfc24standardedition-eacanada-g1a-07-1920x1080-4a5ea9f5ddce.jpg" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">Whiskas</p>
+                <p class="text-xl mt-3">Sport</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "TRIXIE") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Puzzle") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2020/12/trixie-300x300.png" 
+                    <img src="https://cdn.akamai.steamstatic.com/steam/apps/1659040/ss_33539163983d92cc770717b26b6f449f145d45a7.600x338.jpg?t=1693992811" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">TRIXIE</p>
+                <p class="text-xl mt-3">Puzzle</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "BIOLINE") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Arcade") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2020/12/bioline.jpg" 
+                    <img src="https://cdn2.unrealengine.com/egs-sonic-superstars-carousel-desktop-2-1920x1080-678bb1d757ad.jpg?h=720&quality=medium&resize=1&w=1280" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">BIOLINE</p>
+                <p class="text-xl mt-3">Arcade</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "BOBBYPET") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Racing") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2020/12/bobbypet-300x300.jpg" 
+                    <img src="https://cdn2.unrealengine.com/03-tcm-announce-screenshots-04-1920x1080-1920x1080-f92576407c51.jpg" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">BOBBYPET</p>
+                <p class="text-xl mt-3">Racing</p>
             </a>
-            <a href={{ url_for('products.filter_products', genre = "MAKAR") }} class="genre-item group flex flex-col items-center">
+            <a href={{ url_for('products.filter_products', genre = "Fighting") }} class="genre-item group flex flex-col items-center">
                 <div class="w-80 h-60 rounded-3xl overflow-hidden relative">
-                    <img src="https://www.petmart.vn/wp-content/uploads/2020/12/makar-300x300.png" 
+                    <img src="https://img-cdn.2game.vn/2022/06/23/52118140173_7935ba1924_h.jpg" 
                     class="h-full object-cover group-hover:h-[120%] transition-all duration-500">
                     <div class="w-full h-full opacity-50 -top-[100%] group-hover:bg-gradient-to-t 
                     group-hover:from-primaryColor group-hover:to-transparent absolute group-hover:top-0 transition-all duration-300"></div>
                 </div>
-                <p class="text-xl mt-3">MAKAR</p>
+                <p class="text-xl mt-3">Fighting</p>
             </a>
         </div>
     </div>
