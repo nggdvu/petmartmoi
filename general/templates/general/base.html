@@ -53,7 +53,7 @@
               after:-right-8 after:h-8 after:w-24">
                 DỊCH VỤ
               </span>
-              <ul class="subnav absolute hidden group-hover:block shadow-xl w-52
+              <ul class="subnav absolute hidden group-hover:block w-52
               top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-3 pb-2">
                   <a href="#" class="block w-full">Cắt tỉa lông chó, mèo</a>
@@ -73,7 +73,7 @@
               <li class="nav-item group mx-3 transition-all relative">
                 <a href="#" class="user-auth group md:flex items-center mr-6">
                   <i class="fa-solid fa-user-alt text-xl mr-4"></i>
-                <ul class="subnav absolute hidden group-hover:block shadow-xl w-60
+                <ul class="subnav absolute hidden group-hover:block w-60
                 top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
                   <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 py-2">
                     <a class="mr-8 font-bold">{{ session['current_user']['name'] }}</a>
@@ -93,7 +93,7 @@
               <li class="nav-item group mx-3 transition-all relative">
                 <a href="#" class="user-auth group md:flex items-center mr-6">
                   <i class="fa-solid fa-user-alt text-xl mr-4"></i>
-                <ul class="subnav absolute hidden group-hover:block shadow-xl w-60
+                <ul class="subnav absolute hidden group-hover:block w-60
                 top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
                   <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
                     <a href="#" class="block w-full">Đăng nhập</a>
@@ -105,17 +105,17 @@
             {% endif %}
             <div class="relative group p-2">
               <a href={{ url_for('cart.index') }} class="user-cart relative flex items-center">
-                <img src="static/assets/img/cartbutton.png" alt="cart" class="w-10 md:w-100 lg:w-36">
-                  <p class="cart-quantity absolute text-xs text-white md:text-base px-1 md:px-28 -top-2 
-                  right-0 md:-top-4 md:right-8 h-auto md:h-10 text-[#461751] bg-red-500 border-white
-                   min-w-[12px] md:min-w-[36px] text-center font-medium rounded-2xl">
-                    {{ session['cart_length'] }}
-                  </p>
+                <img src="static/assets/img/cartbutton.png" alt="cart" class="w-32">
+                <p class="cart-quantity absolute text-xs md:text-base px-1 ml-24 -top-2 
+                left-3 md:-top-4 md:left-4 h-auto md:h-6 text-white bg-primaryColor
+                min-w-[12px] md:min-w-[24px] text-center font-bold rounded-2xl">
+                  {{ session['cart_length'] }}
+                </p>
               </a>
 
               <!-- POPUP CART -->
-              <div id="popup-cart" class="absolute top-10 -right-4 bg-white w-[380px] pb-4 rounded-lg shadow-lg
-              hidden group-hover:block
+              <div id="popup-cart" class="absolute top-10 -right-4 bg-white w-[380px] pb-4 rounded-xl shadow-lg
+              hidden group-hover:block mt-4
               before:block before:content-[''] before:w-0 before:h-0 before:absolute
               before:-top-1 before:right-7 before:border-b-4 before:border-x-[6px] before:border-x-transparent before:border-b-[var(--primaryColor)]
               after:block after:content-[''] after:w-10 after:h-8 after:absolute
@@ -126,7 +126,7 @@
                     <p class="text-sm italic p-4 text-center">Giỏ hàng của bạn hiện đang trống</p>
                   {% else %}
                     {% for products in session['cart'] %}
-                    <div class="px-3 py-2 first-of-type:pt-4 last:pb-4 flex gap-4 hover:bg-[#3e2d5c]">
+                    <div class="px-3 py-2 first-of-type:pt-4 last:pb-4 flex gap-4 hover:bg-gray-400 rounded-lg">
                       <div class="h-20 shrink-0 overflow-hidden">
                         <img src={{ products['image'] }} alt="{{ products['image'] }}"
                         class="h-full object-cover rounded" style="aspect-ratio: 4/5">
@@ -141,8 +141,8 @@
                 </div>
                 <hr class="opacity-50">
                 <div class="px-3 py-2 flex justify-between">
-                  <p class="text-base font-medium">Tổng:</p>
-                  <p class="text-base font-medium">{{ session['subtotal'] | currency }}</p>
+                  <p class="text-base font-medium italic">Tổng giá trị giỏ hàng:</p>
+                  <p class="text-base font-semibold">{{ session['subtotal'] | currency }}</p>
                 </div>
                 <a href={{ url_for('cart.index') }} class="block mx-auto mt-3 leading-8 h-8 w-72 text-red-500
                 transition-all text-center font-medium">Xem toàn bộ giỏ hàng</a>
@@ -223,9 +223,7 @@
           </ul>
         </div>
       </div>
-
-      <div class="break-line w-full border-t border-solid" style="border-color: rgba(204,204,204,0.6);"></div>
-      
+     
       <div id="community" class="flex justify-between px-2 pt-4">
         <div class="big-logo flex justify-between items-center pr-16">
           <img src="static/assets/img/20c7fcfd-1308-4469-b3a2-eebffd26af8d.png" alt="petmart-big" class="w-36">

@@ -1,5 +1,4 @@
 from flask import Blueprint, redirect, render_template, request, session, flash
-from models import products, Orders, User, Purchases
 from datetime import datetime
 from app import db
 from utils.tools import MessageType
@@ -8,6 +7,7 @@ cart_blueprint = Blueprint('cart', __name__, template_folder='templates', static
 
 @cart_blueprint.route('/', methods=['POST', 'GET'])
 def index():
+    from models import products, Platform, Orders, User, Orders, Purchases
     curr_user = User.query.filter_by(id=2).first()
     orders = Orders.query.filter_by(customer_id = curr_user.id).all()
     products_in_cart = []
@@ -48,7 +48,8 @@ def index():
 
 @cart_blueprint.route('/add', methods=["POST"])
 def cart_add():
-    products_id = int(request.form['product_id'])
+    from models import products, Platform, Orders, User, Orders, Purchases
+    products_id = int(request.form['products_id'])
     curr_user = User.query.filter_by(id=2).first()
     order_exist = Orders.query.filter_by(customer_id=curr_user.id, products_id=products_id).first()
     purchase_exist = Purchases.query.filter_by(customer_id=curr_user.id,  products_id=products_id).first()
@@ -83,6 +84,7 @@ def cart_add():
 
 @cart_blueprint.route('/remove/<products_id>', methods=['POST'])
 def cart_remove(products_id):
+    from models import products, Platform, Orders, User, Orders, Purchases
     curr_user = User.query.filter_by(id=2).first()
     deleted_order = Orders.query.filter_by(customer_id=curr_user.id, products_id=products_id).first()
 
