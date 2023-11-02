@@ -6,7 +6,7 @@ general_blueprint = Blueprint('general', __name__, template_folder='templates', 
 
 @general_blueprint.route('/', methods=["POST", "GET"])
 def index():
-    products_hero_section = products.query.filter_by(name='Thức ăn cho chó con cỡ nhỏ ROYAL CANIN Mini Puppy').first()
+    products_hero_section = products.query.filter_by(name='Pate cho chó nước sốt vị thịt bò PEDIGREE Pouch Beef').first()
     products_best_seller = products.query.order_by(products.purchase_number).limit(10).all()
     products_by_price = products.query.order_by(products.price).all()
     products_recommended = []

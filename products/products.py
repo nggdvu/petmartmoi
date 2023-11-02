@@ -87,7 +87,7 @@ def product_detail(product_id):
     products_query = products.query.filter_by(id = product_id).first()
     renderBreadcrumbs = render_template('components/Breadcrumbs.html', product_name = products_query.name)
 
-    return render_template('product-detail.html', Breadcrumbs = renderBreadcrumbs, products_query = products_query, platforms_of_products = products_query.platforms_of_products, genres_of_products = products_query.genres_of_products, publisher = products_query.publisher, products_id=product_id)
+    return render_template('product-detail.html', Breadcrumbs = renderBreadcrumbs, products_query = products_query, platforms_of_products = products_query.platforms_of_products, genres_of_products = products_query.genres_of_products, brand = products_query.brand, products_id=product_id)
 
 @products_blueprint.route('', methods = ['POST'])
 def handle_search():
