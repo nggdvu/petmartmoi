@@ -53,45 +53,29 @@
               after:-right-8 after:h-8 after:w-24">
                 DỊCH VỤ
               </span>
-              <ul class="subnav absolute hidden group-hover:block shadow-xl w-52
-              top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
+              <ul class="subnav absolute hidden group-hover:block shadow-xl w-44
+              top-[120%] -right-8 mt-2 bg-primaryColor rounded-md overflow-hidden">
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-3 pb-2">
-                  <a href="#" class="block w-full">Cắt tỉa lông chó, mèo</a>
+                  <a href="#" class="block w-full">Terms & Conditions</a>
                 </li>
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 py-2">
-                  <a href="#" class="block w-full">Khách sạn chó mèo</a>
+                  <a href="#" class="block w-full">Refund Policy</a>
                 </li>
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
-                  <a href="#" class="block w-full">Tắm chó, mèo tận nơi</a>
+                  <a href="#" class="block w-full">Support</a>
                 </li>
               </ul>
             </li>
           </ul>
-          <div class="navbar-user md:ml-3 lg:ml-11 pl-4 flex items-center">
+          <div class="navbar-user md:ml-3 lg:ml-11 pl-10 flex items-center">
             {% if session['current_user'] %}
-            <ul>
-            <li class="nav-item group mx-3 transition-all relative">
-              <a href="#" class="user-auth group md:flex items-center mr-6">
-                <i class="fa-solid fa-user-alt text-xl mr-4"></i>
-              <ul class="subnav absolute hidden group-hover:block shadow-xl w-60
-              top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
-                <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 py-2">
-                  <a class="mr-8 font-bold">{{ session['current_user']['name'] }}</a>
-                </li>
-                <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-3 pb-2">
-                  <a class="mr-8"><b>Số dư:</b> {{ session['current_user']['budget'] | currency}}</a>
-                </li>
-                <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
-                  <a href="#" class="block w-full">Đăng xuất</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-              <span class="group-hover:text-primaryColor transition-all px-1 py-8 absolute hidden">{{ session['current_user']['name'] }}</span>
-
+            <a href="#" class="user-auth group md:flex items-center mr-6">
+              <i class="fa-solid fa-user-alt text-xl mr-4"></i>
+              <span class="group-hover:text-primaryColor transition-all px-1 py-8 absolute hidden">
+                {{ session['current_user']['name'] }}
                 <span class="currency absolute hidden group-hover:inline-block ml-2">
                   {{ session['current_user']['budget'] | currency}}
-                
+                </span>
               </span>
             {% else %}
                 <span class="group-hover:text-primaryColor transition-all px-1 py-8">
@@ -114,13 +98,13 @@
               hidden group-hover:block
               before:block before:content-[''] before:w-0 before:h-0 before:absolute
               before:-top-1 before:right-7 before:border-b-4 before:border-x-[6px] before:border-x-transparent before:border-b-[var(--primaryColor)]
-              after:block after:content-[''] after:w-10 after:h-8 after:absolute
+              after:block after:content-[''] after:w-16 after:h-8 after:absolute
               after:-top-3 after:right-1
               ">
-                <h1 class="bg-primaryColor px-3 py-2 text-white font-semibold rounded-t-lg">Giỏ hàng của bạn</h1>
+                <h1 class="bg-primaryColor px-3 py-2 text-white font-semibold rounded-t-lg">Your cart</h1>
                 <div class="max-h-96 overflow-y-scroll">
                   {% if (session['cart_length'] <= 0) %}
-                    <p class="text-sm italic p-4 text-center">Giỏ hàng của bạn hiện đang trống</p>
+                    <p class="text-sm italic p-4 text-center">Your cart is empty now</p>
                   {% else %}
                     {% for products in session['cart'] %}
                     <div class="px-3 py-2 first-of-type:pt-4 last:pb-4 flex gap-4 hover:bg-[#3e2d5c]">
@@ -138,11 +122,11 @@
                 </div>
                 <hr class="opacity-50">
                 <div class="px-3 py-2 flex justify-between">
-                  <p class="text-base font-medium">Tổng:</p>
+                  <p class="text-base font-medium">Subtotal:</p>
                   <p class="text-base font-medium">{{ session['subtotal'] | currency }}</p>
                 </div>
-                <a href={{ url_for('cart.index') }} class="block mx-auto mt-3 leading-8 h-8 w-72 text-red-500
-                transition-all text-center font-medium">Xem giỏ hàng</a>
+                <a href={{ url_for('cart.index') }} class="block mx-auto mt-3 leading-8 h-8 w-72 rounded-xl bg-primaryColor hover:opacity-70 
+                transition-all text-center font-medium">View Cart</a>
               </div>
 
             </div>
@@ -158,8 +142,12 @@
 
     <footer class="pt-24 px-20 pb-16">
       <div id="footer_nav" class="pb-16 px-28 flex justify-between flex-wrap">
+        <a href={{ url_for("general.index") }} class="footer-logo mt-16">
+          <img src="../../../static/assets/img/20c7fcfd-1308-4469-b3a2-eebffd26af8d.png" alt="petmart big" class="w-56">
+        </a>
+
         <div class="footer_nav-products">
-          <h5 class="font-semibold mb-4">Sản phẩm</h5>
+          <h5 class="font-semibold mb-10">Sản phẩm</h5>
           <ul>
             <li>
               <a href="" class="block py-2">Sản phẩm cho chó</a>
@@ -180,30 +168,8 @@
             </ul>
         </div>
 
-        
-        <div class="footer_policies">
-          <h5 class="font-semibold mb-4">Chính sách</h5>
-          <ul>
-            <li>
-              <a href="#" class="block py-2">Điều khoản & điều kiện</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2">Chính sách giao hàng</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2">Chính sách hoàn tiền</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2">Chính sách bảo hành </a>
-            </li>
-            <li>
-              <a href="#" class="block py-2">Quyền riêng tư</a>
-            </li>
-          </ul>
-        </div>
-
         <div class="footer_store-info">
-          <h5 class="font-semibold mb-4">Về chúng tôi</h5>
+          <h5 class="font-semibold mb-10">Về chúng tôi</h5>
           <ul>
             <li class="py-2">
               Địa chỉ: Số 3 Đại Cồ Việt, Phường Cầu Dền, Quận Hai Bà Trưng
@@ -212,10 +178,34 @@
               Giờ mở cửa: Thứ 2 - Chủ nhật: 8 A.M - 10 P.M
             </li>
             <li class="py-2">
-              <a href="#">Email: <u>petmart@gmail.com</u></a>
+              <a href="#">Email: petmart@gmail.com</a>
             </li>
             <li class="py-2">
-              Số điện thoại: <u>028-7106-9906</u>
+              Số điện thoại: 028-7106-9906
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer_policies">
+          <h5 class="font-semibold mb-10">Policies</h5>
+          <ul>
+            <li>
+              <a href="#" class="block py-3">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="#" class="block py-3">Shipping Policy</a>
+            </li>
+            <li>
+              <a href="#" class="block py-3">Refund Policy</a>
+            </li>
+            <li>
+              <a href="#" class="block py-3">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="block py-3">Cookie Policy</a>
+            </li>
+            <li>
+              <a href="#" class="block py-3">FAQ</a>
             </li>
           </ul>
         </div>
@@ -223,28 +213,50 @@
 
       <div class="break-line w-full border-t border-solid" style="border-color: rgba(204,204,204,0.6);"></div>
       
-      <div id="community" class="flex justify-between px-2 pt-4">
-        <div class="big-logo flex justify-between items-center pr-16">
-          <img src="static/assets/img/20c7fcfd-1308-4469-b3a2-eebffd26af8d.png" alt="petmart-big" class="w-36">
-          <div class="info pl-8 w-96">
-            <p class="font-semibold mb-2 tracking-wide">2023 © CÔNG TY PETMART VIỆT NAM</p>
-          <p class="font-regular mb-2 text-xs text-justify tracking-wide">Nội dung và hình ảnh bài viết trên trang petmart.vn và petmart.info đã được đăng ký bản quyền Digital Millennium Copyright Act (DMCA) theo tiêu chuẩn Creative Commons Attribution-NoDerivs 3.0 Unported License. Vui lòng dẫn link nguồn khi sao chép các bài viết trên trang này.</p>
+      <div id="payment-and-community" class="flex justify-between px-2 pt-4">
+        <div class="payment-methods">
+          <p class="font-semibold mb-8 tracking-wide pl-2">Payment Methods</p>
+          <div class="flex justify-between">
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_e0547a35fd3b42eb8fc45f9f73b77246~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Visa.png" alt="VISA">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_ad29ff701fee45629d63f3e4f3f2894b~mv2.png/v1/fill/w_63,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Master%20Card.png" alt="MASTER CARD">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_f73858b81fdb40388c28ec8a78c7d69f~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/American%20Express.png" alt="American Express">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_1947c7dbf840480ea8638b9b0c29c030~mv2.png/v1/fill/w_46,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/JCB.png" alt="JCB">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_0164b1a8ce80423890095a8b3d8a62eb~mv2.png/v1/crop/x_0,y_0,w_176,h_109/fill/w_57,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Discover.png" alt="DISCOVER">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_5fa529be46ae437db9ad6e58fa085ce1~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/China%20Union%20Pay.png" alt="UnionPay">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_bbd810de83bc447f96dc4bb0addbfaed~mv2.png/v1/crop/x_1,y_1,w_149,h_109/fill/w_48,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Diners.png" alt="Dinner">
+            </div>
+            <div class="px-2">
+              <img width="44px" class="object-cover h-7" src="https://static.wixstatic.com/media/c837a6_e0d5f0c365864fda9b7d65df15eecaf5~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/PayPal.png" alt="PayPal">
+            </div>
           </div>
         </div>
-        <div class="certification pr-16">
-          <img src="static/assets/img/cert.png" alt="cert" class="w-56">
-        </div>
         <div class="community-link pr-16">
-          <p class="font-semibold mb-8 tracking-wide">Kết nối với chúng tôi</p>
+          <p class="font-semibold mb-8 tracking-wide">Join the Community</p>
           <div class="flex justify-between">
             <a href="#" class="pr-5">
-              <i class="text-3xl fa-brands fa-facebook-f"></i>
+              <i class="text-xl fa-brands fa-facebook-f"></i>
             </a>
             <a href="#" class="px-5">
-              <i class="text-3xl fa-brands fa-twitter"></i>
+              <i class="text-xl fa-brands fa-instagram"></i>
             </a>
             <a href="#" class="px-5">
-              <i class="text-3xl fa-brands fa-youtube"></i>
+              <i class="text-xl fa-brands fa-youtube"></i>
+            </a>
+            <a href="#" class="px-5">
+              <i class="text-xl fa-brands fa-tiktok"></i>
             </a>
           </div>
         </div>
