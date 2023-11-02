@@ -71,7 +71,7 @@
                 <div class="swiper-wrapper" style="height:auto !important;">
                     {% for products in products_best_seller %}
                         <div class="swiper-slide flex flex-col items-center text-center">
-                            <a href={{ url_for('products.products_detail', products_id=products.id) }} class="group flex flex-col items-center">
+                            <a href={{ url_for('products.product_detail', product_id=products.id) }} class="group flex flex-col items-center">
                                 <div class="h-[440px] rounded-3xl overflow-hidden">
                                     <img src={{ products.image }} alt="products Image" 
                                     class="h-full object-cover rounded-3xl group-hover:scale-125 transition-all duration-300"

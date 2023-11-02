@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, redirect, url_for, request, session, flash
 from utils.tools import MessageType
-from models import products, Platform, User, Orders
 
 general_blueprint = Blueprint('general', __name__, template_folder='templates', static_folder='static', static_url_path='/assets')
 
 @general_blueprint.route('/', methods=["POST", "GET"])
 def index():
+    from models import products, Platform, User, Orders
+    
     products_hero_section = products.query.filter_by(name='Pate cho chó nước sốt vị thịt bò PEDIGREE Pouch Beef').first()
     products_best_seller = products.query.order_by(products.purchase_number).limit(10).all()
     products_by_price = products.query.order_by(products.price).all()
