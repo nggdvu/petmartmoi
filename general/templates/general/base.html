@@ -70,34 +70,38 @@
           <div class="navbar-user md:ml-3 lg:ml-11 pl-4 flex items-center">
             {% if session['current_user'] %}
             <ul>
-            <li class="nav-item group mx-3 transition-all relative">
-              <a href="#" class="user-auth group md:flex items-center mr-6">
-                <i class="fa-solid fa-user-alt text-xl mr-4"></i>
-              <ul class="subnav absolute hidden group-hover:block shadow-xl w-60
-              top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
-                <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 py-2">
-                  <a class="mr-8 font-bold">{{ session['current_user']['name'] }}</a>
-                </li>
-                <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-3 pb-2">
-                  <a class="mr-8"><b>Số dư:</b> {{ session['current_user']['budget'] | currency}}</a>
-                </li>
-                <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
-                  <a href="#" class="block w-full">Đăng xuất</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-              <span class="group-hover:text-primaryColor transition-all px-1 py-8 absolute hidden">{{ session['current_user']['name'] }}</span>
-
-                <span class="currency absolute hidden group-hover:inline-block ml-2">
-                  {{ session['current_user']['budget'] | currency}}
-                
-              </span>
+              <li class="nav-item group mx-3 transition-all relative">
+                <a href="#" class="user-auth group md:flex items-center mr-6">
+                  <i class="fa-solid fa-user-alt text-xl mr-4"></i>
+                <ul class="subnav absolute hidden group-hover:block shadow-xl w-60
+                top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
+                  <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 py-2">
+                    <a class="mr-8 font-bold">{{ session['current_user']['name'] }}</a>
+                  </li>
+                  <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-3 pb-2">
+                    <a class="mr-8"><b>Số dư:</b> {{ session['current_user']['budget'] | currency}}</a>
+                  </li>
+                  <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
+                    <a href="#" class="block w-full">Đăng xuất</a>
+                  </li>
+                </ul>
+                </a>
+              </li>
+            </ul>
             {% else %}
-                <span class="group-hover:text-primaryColor transition-all px-1 py-8">
-                  Đăng nhập
-                </span>
-              </a>
+            <ul>
+              <li class="nav-item group mx-3 transition-all relative">
+                <a href="#" class="user-auth group md:flex items-center mr-6">
+                  <i class="fa-solid fa-user-alt text-xl mr-4"></i>
+                <ul class="subnav absolute hidden group-hover:block shadow-xl w-60
+                top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
+                  <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
+                    <a href="#" class="block w-full">Đăng nhập</a>
+                  </li>
+                </ul>
+                </a>
+              </li>
+            </ul>
             {% endif %}
             <div class="relative group p-2">
               <a href={{ url_for('cart.index') }} class="user-cart relative flex items-center">
@@ -117,7 +121,6 @@
               after:block after:content-[''] after:w-10 after:h-8 after:absolute
               after:-top-3 after:right-1
               ">
-                <h1 class="bg-primaryColor px-3 py-2 text-white font-semibold rounded-t-lg">Giỏ hàng của bạn</h1>
                 <div class="max-h-96 overflow-y-scroll">
                   {% if (session['cart_length'] <= 0) %}
                     <p class="text-sm italic p-4 text-center">Giỏ hàng của bạn hiện đang trống</p>
@@ -142,7 +145,7 @@
                   <p class="text-base font-medium">{{ session['subtotal'] | currency }}</p>
                 </div>
                 <a href={{ url_for('cart.index') }} class="block mx-auto mt-3 leading-8 h-8 w-72 text-red-500
-                transition-all text-center font-medium">Xem giỏ hàng</a>
+                transition-all text-center font-medium">Xem toàn bộ giỏ hàng</a>
               </div>
 
             </div>
@@ -156,7 +159,7 @@
     
     {% endblock content %}
 
-    <footer class="pt-24 px-20 pb-16">
+    <footer class="pt-10 px-20 pb-4">
       <div id="footer_nav" class="pb-16 px-28 flex justify-between flex-wrap">
         <div class="footer_nav-products">
           <h5 class="font-semibold mb-4">Sản phẩm</h5>
