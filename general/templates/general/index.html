@@ -48,14 +48,9 @@
                     </div>
                     
                 </div>
-                <div class="hero-vertical-image mt-52 mr-8 w-[538px] h-[690px]
-                rounded-[35px] overflow-hidden bg-no-repeat bg-cover"
-                style="background-image: url('static/assets/img/hero-image-vertical.jpg'); 
-                box-shadow: 0px 6px 20px 2px rgba(120,120,120,0.4), 3px 9px 14px 5px rgba(6,5,6,0.35)">
-                </div>
+                
             </div>
             <div class="w-full bg-bgColor h-28"></div>
-        </div>
     </div>
     
     <!--BEST SELLER SECTION-->
@@ -69,19 +64,19 @@
         <div class="carousel-container swiper w-full" style="padding: 0 96px;">
             <div class="product-carousel mt-24 overflow-hidden" style="width: 100%;">
                 <div class="swiper-wrapper" style="height:auto !important;">
-                    {% for products in products_best_seller %}
+                    {% for product in products_best_seller %}
                         <div class="swiper-slide flex flex-col items-center text-center">
-                            <a href={{ url_for('products.product_detail', product_id=products.id) }} class="group flex flex-col items-center">
+                            <a href={{ url_for('products.product_detail', product_id=product.id) }} class="group flex flex-col items-center">
                                 <div class="h-[440px] rounded-3xl overflow-hidden">
-                                    <img src={{ products.image }} alt="products Image" 
+                                    <img src={{ product.image }} alt="products Image" 
                                     class="h-full object-cover rounded-3xl group-hover:scale-125 transition-all duration-300"
                                     style="aspect-ratio: 9/12">
                                 </div>
-                                <h4 class="mt-4 w-72 text-lg font-semibold truncate">{{ products.name }}</h4>
-                                <p class="mt-2">{{ products.price|currency }}</p>
+                                <h4 class="mt-4 w-72 text-lg font-semibold truncate">{{ product.name }}</h4>
+                                <p class="mt-2">{{ product.price|currency }}</p>
                             </a>
                             <form action={{ url_for('cart.cart_add') }} method="POST">
-                                <input type="hidden" name="product_id" value="{{products.id}}">
+                                <input type="hidden" name="product_id" value="{{product.id}}">
                                 <button type="submit" class="mt-3 h-10 w-64 rounded-[35px] bg-primaryColor font-semibold hover:opacity-70 transition-all">Add to Cart</button>
                             </form>
                         </div>
