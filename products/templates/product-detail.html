@@ -1,14 +1,14 @@
 {% extends "general/base.html" %}
 
 {% block content %}
-<div class="w-96 sm:w-full max-w-screen-md mx-auto">
+<div class="w-full justify-center px-48">
   <div class="flex flex-col justify-center my-10">
     {{ Breadcrumbs | safe }}
 
     <div class="flex flex-col sm:flex-row justify-center">
       <img
         style="aspect-ratio: 10/12"
-        class="w-72 sm:w-80 rounded-xl object-cover mb-5"
+        class="w-72 sm:w-80 rounded-xl object-cover mb-5 mr-16"
         src="{{products_query.image}}"
         alt="image"
       />
@@ -48,6 +48,10 @@
       <b>Chính sách trả hàng và hoàn tiền: </b>
       Theo chính sách của chúng tôi, khách hàng có quyền trả lại sản phẩm trong một số trường hợp cụ thể. 
       Để đảm bảo quyền lợi của khách hàng, PetMart áp dụng thời gian trả hàng trong vòng 30 ngày kể từ ngày mua sản phẩm. Tuy nhiên, đối với các sản phẩm như thức ăn hoặc đồ chơi liên quan đến sức khỏe của thú cưng, chúng tôi yêu cầu khách hàng kiểm tra kỹ trước khi mua để đảm bảo tính an toàn và vệ sinh. 
+    </p>
+    <p class="mt-8 text-justify">
+      <b>Chính sách vận chuyển: </b>
+      PetMart áp dụng một khoản phí vận chuyển tiêu chuẩn cho mỗi đơn hàng được gửi đi. PetMart cam kết duy trì mức phí vận chuyển hợp lý và cạnh tranh để đảm bảo sự công bằng cho khách hàng.
     </p>
   </div>
 </div>
