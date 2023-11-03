@@ -1,12 +1,7 @@
-{% extends "general/base.html" %}
-
-{% block content %}
-<h1 class="text-3xl sm:text-5xl font-bold text-center my-10">
-  {% if not pageTitle %}
-    SHOP ALL
-  {% else %}
-    {{ pageTitle }}
-  {% endif %}
+{% extends "general/base.html" %} {% block content %}
+<h1 class="text-3xl ml-12 font-bold px-48 my-12">
+  {% if not pageTitle %} Cửa hàng thú cưng {% else %} {{ pageTitle }} {% endif
+  %}
 </h1>
 <div class="flex justify-center">
   {{ SideBar | safe }}
@@ -21,13 +16,12 @@
       {{ Dropdown | safe }}
     </div>
     {% if search_text %}
-    <h1 class="mb-5 text-xl">Result for "{{search_text}}":</h1>
+    <h1 class="mb-5 text-xl">Bạn đã tìm: "{{search_text}}"</h1>
     {% endif %}
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-20">
       {{ Item | safe }}
     </div>
     {{ Pagination | safe }}
   </div>
-
 </div>
 {% endblock %}

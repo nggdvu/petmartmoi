@@ -3,14 +3,13 @@
 {% block content %}
 <div class="px-48 mt-12 flex justify-between gap-10">
     <div class="my-cart grow">
-        <h3 class="mb-12 text-4xl font-medium">My Cart</h3>
-        <hr class="opacity-40">
+        <h3 class="mb-12 text-3xl font-bold">Giỏ hàng</h3>
+        <hr class="opacity-40">Thêm
         <br>
-
         {% if cart %}
         <div class="cart-products-container w-full">
             {% for products in cart %}
-            <div class="cart-product h-56 flex justify-between gap-6 pl-6 pr-4 py-5 mb-4 bg-[#212121] rounded-sm">
+            <div class="cart-product h-56 flex justify-between gap-6 pl-6 pr-4 py-5 mb-4 bg-white hover:bg-[whitesmoke] hover:text-slate-600 rounded-sm">
                 <div class="flex justify-between grow">
                     <div class="product-info flex">
                         <div class="h-44 rounded-md overflow-hidden inline-block mr-5">

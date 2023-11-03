@@ -48,7 +48,7 @@
               <a href={{ url_for('cart.index') }} class="px-1 pt-8">HỆ THỐNG CỬA HÀNG</a>
             </li>
             <li class="nav-item group mx-3 transition-all relative">
-              <span class="px-1 pt-8 group-hover:text-primaryColor font-semibold
+              <span class="px-1 pt-8 group-hover:text-primaryColor cursor-pointer font-semibold
               after:content-[''] after:block after:absolute after:top-[15px]
               after:-right-8 after:h-8 after:w-24">
                 DỊCH VỤ
@@ -126,7 +126,7 @@
                     <p class="text-sm italic p-4 text-center">Giỏ hàng của bạn hiện đang trống</p>
                   {% else %}
                     {% for products in session['cart'] %}
-                    <div class="px-3 py-2 first-of-type:pt-4 last:pb-4 flex gap-4 hover:bg-gray-400 rounded-lg">
+                    <div class="px-3 py-2 first-of-type:pt-4 last:pb-4 flex gap-4 hover:bg-[whitesmoke] hover:text-slate-600 rounded-lg">
                       <div class="h-20 shrink-0 overflow-hidden">
                         <img src={{ products['image'] }} alt="{{ products['image'] }}"
                         class="h-full object-cover rounded" style="aspect-ratio: 4/5">

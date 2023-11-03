@@ -1,13 +1,13 @@
 {% extends "general/base.html" %}
 
 {% block content %}
-<div class="w-72 sm:w-full max-w-screen-md mx-auto">
+<div class="w-96 sm:w-full max-w-screen-md mx-auto">
   <div class="flex flex-col justify-center my-10">
     {{ Breadcrumbs | safe }}
 
     <div class="flex flex-col sm:flex-row justify-center">
       <img
-        style="aspect-ratio: 9/12"
+        style="aspect-ratio: 10/12"
         class="w-72 sm:w-80 rounded-xl object-cover mb-5"
         src="{{products_query.image}}"
         alt="image"
@@ -15,43 +15,40 @@
       <div class="w-10"></div>
       <div class="flex flex-col">
         <h1 class="font-bold text-2xl sm:text-4xl mb-5">{{products_query.name}}</h1>
-        <p class="mb-5 text-lg">
-          <b>Price: </b>{{ '{:,.0f}'.format(products_query.price).replace(',', '.')
-          }} vnđ
+        <p class="mb-5 text-2xl text-red-600 font-bold">
+          {{ '{:,.0f}'.format(products_query.price).replace(',', '.')}} vnđ
         </p>
-        <p class="mb-5 text-lg">
-          <b>Platform: </b>
+        <p class="mb-5 text-base">
+          <b>Dành cho: </b>
           {% for platform in platforms_of_products%} {{platform.platform_name}} {%
           if not loop.last %}, {% endif %} {% endfor %}
         </p>
-        <p class="mb-5 text-lg">
-          <b>brand: </b>
+        <p class="mb-5 text-base">
+          <b>Thương hiệu: </b>
           {{brand.brand_name}}
         </p>
-        <p class="mb-5 text-lg">
-          <b>Genres: </b>
+        <p class="mb-5 text-base">
+          <b>Thể loại: </b>
           {% for genre in genres_of_products%} {{genre.genre_name}} {% if not
           loop.last %}, {% endif %} {% endfor %}
         </p>
-
-        <p class="w-72 sm:w-full max-w-[400px] text-justify">
-          <b>Return and Refund Policy: </b>
-          DG-productss refund offer, within two weeks of purchase and with less than
-          two hours of playtime, applies to productss and software applications on
-          the DG-productss store. Here is an overview of how refunds work with other
-          types of purchases.
-        </p>
-        <form action={{ url_for('cart.cart_add') }} method="POST">
+        <p class="mb-5 text-base">
+          <b>Mô tả sản phẩm:</b> 
+          {{products_query.description}}</p>
+                <form action={{ url_for('cart.cart_add') }} method="POST">
           <input type="hidden" name="products_id" value="{{products_id}}">         
           <button
-            class="font-bold px-20 py-2 bg-purple-500 hover:bg-purple-700 duration-300 rounded-full my-5"
-          >
-            Add to cart
+            class="font-bold px-20 py-2 text-white bg-red-600 hover:bg-red-700 duration-300 rounded-full my-5">
+            Thêm vào giỏ hàng
           </button>
         </form>
       </div>
     </div>
-    <p class="max-w-2xl my-5 px-2 text-justify">{{products_query.description}}</p>
+    <p class="mt-8 text-justify">
+      <b>Chính sách trả hàng và hoàn tiền: </b>
+      Theo chính sách của chúng tôi, khách hàng có quyền trả lại sản phẩm trong một số trường hợp cụ thể. 
+      Để đảm bảo quyền lợi của khách hàng, PetMart áp dụng thời gian trả hàng trong vòng 30 ngày kể từ ngày mua sản phẩm. Tuy nhiên, đối với các sản phẩm như thức ăn hoặc đồ chơi liên quan đến sức khỏe của thú cưng, chúng tôi yêu cầu khách hàng kiểm tra kỹ trước khi mua để đảm bảo tính an toàn và vệ sinh. 
+    </p>
   </div>
 </div>
 {% endblock %}
