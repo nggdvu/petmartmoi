@@ -44,21 +44,21 @@
             {% endfor %}
         </div>
         <div class="promo-code mt-6">
-            <p class="text-primaryColor">
+            <p class="text-primaryColor font-medium italic">
                 <i class="fa-solid fa-tag mr-1 text-primaryColor"></i>
-                Enter a promo code
+                Nhập mã giảm giá
             </p>
         </div>
         {% else %}
-        <p class="italic">Your cart is empty, let's go shopping and fill up the cart!</p>
-        <p class="italic">Explore more products
-            <a href={{ url_for('products.index') }} class="underline hover:text-primaryColor">here...</a>
+        <p class="italic">Giỏ hàng của bạn hiện đang trống.</p>
+        <p class="italic">Xem các sản phẩm của PetMart cho thú cưng
+            <a href={{ url_for('products.index') }} class="underline hover:text-primaryColor">tại đây.</a>
         </p>
         {% endif %}
     </div>
     
-    <div class="order-summary w-1/4">
-        <h3 class="mb-12 text-4xl font-medium">Order Summary</h3>
+    <div class="order-summary w-1/4 ">
+        <h3 class="mb-12 text-3xl font-bold">Đơn hàng</h3>
         <hr class="opacity-40">
         <div class="pt-5 pb-3">
             <div class="py-2 flex justify-between">

@@ -1,7 +1,5 @@
 <ul class="flex items-center my-5 sm:ml-2">
-  <a style="width: 60px;" class="hover:text-red-600 duration-30 text-center" href="/">Home /</a>
-  <a style="width: 100px;" class="hover:text-red-600 duration-300 text-center" href={{ url_for('products.index') }}
-    >Sản phẩm /</a
-  >
-  <a class="opacity-60 truncate">{{product_name}}</a>
+ <a style="width: 100px;" class="hover:text-red-600 italic duration-300 text-center" href={{ url_for('products.index') }}
+    >Sản phẩm / </a>
+  <a class="opacity-60 italic truncate"> {{product_name}}</a>
 </ul>

@@ -193,31 +193,32 @@
             </a>
         </div>
     </div>
-
     
     
     <!--NEWSLETTER SECTION-->
+    
     <div id="newsletter-section" class="relative">
         <div class="h-[568px] absolute top-0 -z-10 w-full bg-no-repeat bg-cover bg-fixed"
         style="background-image: url('static/assets/img/general-ending-image.png');"
         ></div>
-        <!--
-        <img src="static/assets/img/general-ending-image.png"
-        class="h-[568px] w-full absolute top-0 -z-10 object-cover">
-        -->
         <div class="pt-16 pb-16 text-center flex flex-col items-center ">
-            <p class="w-60 mt-6">ĐĂNG KÝ ĐỂ NHẬN THÔNG TIN KHUYẾN MÃI VÀ TẠP CHÍ HÀNG TUẦN</p>
+            <p class="w-auto text-red-600 font-bold text-3xl mt-6"><br>ĐĂNG KÝ ĐỂ NHẬN</br>
+              THÔNG TIN KHUYẾN MÃI & TẠP CHÍ HÀNG TUẦN</p>
             <div class="mt-10">
-                <form action="" method='POST' class="flex flex-col items-center w-[500px]">
-                    <span>Email *</span>
-                    <input type="text" name="newsletter-email" placeholder="example@email.com"
-                    class="w-full h-12 px-4 py-2 text-center rounded-tl-xl rounded-tr-xl border-2 
-                    border-solid focus:border-orange-600 bg-transparent text-white outline-none
-                    transition-all placeholder:italic">
-                    <button type="submit" class="w-full h-12 text-bgColor bg-white rounded-bl-xl rounded-br-xl 
-                    font-semibold border-2 border-solid border-white transition-all
-                    hover:text-white hover:bg-primaryColor">Subcribe</button>
-                </form>
+                <form action="" method="POST" class="flex items-center w-[500px]">
+                    <input
+                      type="text"
+                      name="newsletter-email"
+                      placeholder="example@email.com"
+                      class="flex-grow h-12 px-4 py-2 text-center rounded-l-3xl border-2 border-solid focus:border-orange-600 bg-transparent text-white outline-none transition-all placeholder-italic"
+                    />
+                    <button
+                      type="submit"
+                      class="h-12 px-4 text-bgColor bg-red-600 rounded-r-3xl font-semibold border-2 border-solid transition-all hover:text-white hover:bg-red-700"
+                    >
+                      Đăng ký
+                    </button>
+                  </form>
             </div>
         </div>
     </div>

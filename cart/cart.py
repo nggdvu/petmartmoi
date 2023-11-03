@@ -38,11 +38,11 @@ def index():
                 db.session.commit()
                 session['cart_length'] = 0
                 session['current_user']['budget'] = curr_user.budget
-                flash(f'Purchase successfully!', category=MessageType['SUCCESS'].value)
+                flash(f'Thanh toán thành công!', category=MessageType['SUCCESS'].value)
             else:
-                flash(f'Your balance is not enough for this purchasing!', category=MessageType['ERROR'].value)
+                flash(f'Số dư không đủ', category=MessageType['ERROR'].value)
         else:
-            flash(f'Your cart is empty, please go back and shopping :D', category=MessageType['ERROR'].value)
+            flash(f'Giỏ hàng của bạn hiện đang trống', category=MessageType['ERROR'].value)
         return redirect(request.referrer)
     return render_template('cart/cart.html', cart=products_in_cart, subtotal=subtotal, discount=discount, taxes=taxes, total=total)
 
@@ -57,10 +57,10 @@ def cart_add():
         found = False
         if order_exist:
             found = True
-            flash(f'This products was already in your cart!', category=MessageType['ERROR'].value)
+            flash(f'Sản phẩm này đã nằm trong giỏ hàng của bạn', category=MessageType['ERROR'].value)
         elif purchase_exist:
             found = True
-            flash(f'You already bought this products!', category=MessageType['ERROR'].value)
+            flash(f'Sản phẩm này đã được thanh toán', category=MessageType['ERROR'].value)
         if not found:
             newOrder = Orders(
                 date_of_order = datetime.now(),
@@ -78,7 +78,7 @@ def cart_add():
             session['cart'].append(products_order_obj)
             session['subtotal'] += order_add.products.price
             session['cart_length'] = len(session['cart'])
-            flash(f'Added to cart successfully!', category=MessageType['SUCCESS'].value)    
+            flash(f'Thêm vào giỏ hàng thành công!', category=MessageType['SUCCESS'].value)    
 
     return redirect(request.referrer)
 

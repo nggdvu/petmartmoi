@@ -61,16 +61,16 @@ def sort_products(sort_by):
     match sort_by:
         case "name_desc":
             products_query = products.query.order_by(products.name.desc()).all()
-            option_value = "Name Z -> A"
+            option_value = "Xếp từ Z - A"
         case "price_asc":
             products_query = products.query.order_by(products.price.asc()).all()
-            option_value = "Price (low to high)"
+            option_value = "Giá thấp nhất"
         case "price_desc":
             products_query = products.query.order_by(products.price.desc()).all()
-            option_value = "Price (high to low)"
+            option_value = "Giá cao nhất"
         case _:
             products_query = products.query.order_by(products.name.asc()).all()
-            option_value = "Name A -> Z"
+            option_value = "Xếp từ A - Z"
 
 
     renderItem = render_template('components/Item.html', products_query = products_query)
@@ -112,7 +112,7 @@ def handle_search():
 def best_sellers():
     from models import products, Platform, Genre
 
-    pageTitle = 'BEST SELLERS'
+    pageTitle = 'BÁN CHẠY NHẤT'
     products_best_seller = products.query.order_by(products.purchase_number).limit(10).all()
     platforms_query = Platform.query.all()
     genres_query = Genre.query.all()
