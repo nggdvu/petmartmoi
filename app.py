@@ -11,7 +11,6 @@ db = SQLAlchemy(app)
 from general.general import general_blueprint
 from auth.auth import auth_blueprint
 from products.products import products_blueprint
-from admin.admin import admin_blueprint
 from cart.cart import cart_blueprint
 
 app.register_blueprint(general_blueprint)
