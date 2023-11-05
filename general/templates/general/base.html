@@ -11,7 +11,6 @@
   </head>
 
   <body>
-    <!--FLASH MESSAGE-->
     {% with messages = get_flashed_messages(with_categories=True) %}
       {% if messages %}
         {% for category, message in messages %}
@@ -20,9 +19,8 @@
       {% endif %}
     {% endwith %}
     
-    <!--NAVBAR-->
     <nav 
-      class="navbar h-10 md:h-20 sticky top-0 w-full z-10"
+      class="navbar h-10 md:h-20 sticky top-0 w-full z-10 shadow-md"
       style="background-color: #fafafa"
     >
       <div class="nav-container h-full w-full px-6 md:px-8 lg:px-24 flex justify-center items-center">
@@ -105,7 +103,7 @@
             {% endif %}
             <div class="relative group p-2">
               <a href={{ url_for('cart.index') }} class="user-cart relative flex items-center">
-                <img src="static/assets/img/cartbutton.png" alt="cart" class="w-32">
+                <img src="../../static/assets/img/cartbutton.png" alt="cart" class="w-32">
                 <p class="cart-quantity absolute text-xs md:text-base px-1 ml-24 -top-2 
                 left-3 md:-top-4 md:left-4 h-auto md:h-6 text-white bg-primaryColor
                 min-w-[12px] md:min-w-[24px] text-center font-bold rounded-2xl">
@@ -113,7 +111,6 @@
                 </p>
               </a>
 
-              <!-- POPUP CART -->
               <div id="popup-cart" class="absolute top-10 -right-4 bg-white w-[380px] pb-4 rounded-xl shadow-lg
               hidden group-hover:block mt-4
               before:block before:content-[''] before:w-0 before:h-0 before:absolute
@@ -154,7 +151,6 @@
       </div>
     </nav>
 
-    <!--CONTENT-->
     {% block content %}
     
     {% endblock content %}
@@ -182,7 +178,6 @@
             </ul>
         </div>
 
-        
         <div class="footer_policies">
           <h5 class="font-semibold mb-4">CHÍNH SÁCH</h5>
           <ul>
@@ -225,14 +220,14 @@
      
       <div id="community" class="flex justify-between px-2 pt-4">
         <div class="big-logo flex justify-between items-center pr-16">
-          <img src="static/assets/img/20c7fcfd-1308-4469-b3a2-eebffd26af8d.png" alt="petmart-big" class="w-36">
+          <img src="../../static/assets/img/20c7fcfd-1308-4469-b3a2-eebffd26af8d.png" alt="petmart-big" class="w-36">
           <div class="info pl-8 w-96">
             <p class="font-semibold mb-2 tracking-wide">2023 © CÔNG TY PETMART VIỆT NAM</p>
           <p class="font-regular mb-2 text-xs text-justify tracking-wide">Nội dung và hình ảnh bài viết trên trang petmart.vn và petmart.info đã được đăng ký bản quyền Digital Millennium Copyright Act (DMCA) theo tiêu chuẩn Creative Commons Attribution-NoDerivs 3.0 Unported License. Vui lòng dẫn link nguồn khi sao chép các bài viết trên trang này.</p>
           </div>
         </div>
         <div class="certification pr-16">
-          <img src="static/assets/img/cert.png" alt="cert" class="w-56">
+          <img src="../../static/assets/img/cert.png" alt="cert" class="w-56">
         </div>
         <div class="community-link pr-16">
           <p class="font-semibold mb-8 tracking-wide">Kết nối với chúng tôi</p>

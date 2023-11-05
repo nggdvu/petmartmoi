@@ -1,59 +1,44 @@
 <div class="relative mb-5">
   <button
     id="dropdownButton"
-    class="z-40 w-52 text-white font-medium rounded-lg bg-red-600 duration-200 text-sm px-5 py-2.5 text-center inline-flex items-center"
+    class="z-40 w-64 text-red-600 rounded-3xl text-base font-bold bg-white shadow-md duration-200 px-5 py-2.5 text-center inline-flex items-center"
     type="button"
   >
-    {% if option_value %} {{option_value}} {% else %} Sort by {% endif %}
-    <svg
-      class="w-2.5 h-2.5 ml-2.5"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 10 6"
-    >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="m1 1 4 4 4-4"
-      />
-    </svg>
+    <p class="font-medium text-black mr-4">Hiển thị:</p>
+    {% if option_value %} {{option_value}} {% else %} Liên quan nhất {% endif %}
   </button>
   <!-- Dropdown menu -->
   <div
     id="dropdown"
-    style="backdrop-filter: blur(30px)"
-    class="z-40 hidden bg-black bg-opacity-30 rounded-lg absolute top-15 w-52"
+    class="z-20 hidden bg-white rounded-3xl absolute mt-4 shadow-md top-15 w-64"
   >
     <ul class="py-2 text-sm">
       <li>
         <a
           href="{{ url_for('products.sort_products', sort_by = 'price_asc') }}"
-          class="block px-4 py-2 hover:bg-red-600"
-          >Price (low to high)</a
+          class="block px-4 py-2 text-base font-medium hover:bg-red-600 hover:text-white"
+          >Giá tăng dần</a
         >
       </li>
       <li>
         <a
           href="{{ url_for('products.sort_products', sort_by = 'price_desc') }}"
-          class="block px-4 py-2 hover:bg-red-600"
-          >Price (high to low)</a
+          class="block px-4 py-2 text-base font-medium hover:bg-red-600 hover:text-white"
+          >Giá giảm dần</a
         >
       </li>
       <li>
         <a
           href="{{ url_for('products.sort_products', sort_by = 'name_asc') }}"
-          class="block px-4 py-2 hover:bg-red-600"
-          >Name A -> Z</a
+          class="block px-4 py-2 text-base font-medium hover:bg-red-600 hover:text-white"
+          >Xếp theo tên từ trên xuống</a
         >
       </li>
       <li>
         <a
           href="{{ url_for('products.sort_products', sort_by = 'name_desc') }}"
-          class="block px-4 py-2 hover:bg-red-600"
-          >Name Z -> A</a
+          class="block px-4 py-2 text-base font-medium hover:bg-red-600 hover:text-white"
+          >Xếp theo tên từ dưới lên</a
         >
       </li>
     </ul>

@@ -6,21 +6,19 @@
     class="flex flex-col items-center"
   >
     <img
-      style="aspect-ratio: 9/13"
-      class="rounded-2xl cursor-pointer hover:opacity-60 duration-200 object-cover"
+      class="rounded-2xl cursor-pointer hover:opacity-60 duration-200 object-cover aspect-square"
       src="{{products.image}}"
       alt="image"
     />
     <h1
-      class="font-bold text-lg sm:text-xl my-3 w-60 sm:w-80 text-center truncate"
+      class="font-bold text-base my-3 w-60 sm:w-80 text-left truncate"
     >
       {{products.name}}
     </h1>
     <div class="flex items-center justify-between w-60 sm:w-80">
-      <p class="text-primaryColor font-medium">
+      <p class="text-primaryColor font-bold">
         {{ products.price | currency }}
       </p>
-      <span>{{products.purchase_number}} sold</span>
     </div>
   </a>
 
