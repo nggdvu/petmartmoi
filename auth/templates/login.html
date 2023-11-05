@@ -5,35 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--add this code to using tailwind -->
     <link rel="stylesheet" href="../../static/output.css" />
-    <title>PETMART - Login</title>
-    <style>
-      .bg-radial-dark {
-        background: radial-gradient(#252525,#1c1c1c);
-      }
-    </style>
+    <title>PetMart | Đăng nhập</title>
   </head>
   <body>
-    <section class="bg-radial-dark min-h-screen flex items-center justify-center">
-      <div class="py-32 px-52 flex bg-neutral-900 rounded-2xl shadow-lg max-w-5xl">
-        <div class="w-1/2 items-center">
-          <img src="" alt="Insert Logo Here">
-         </div>
-        <div class="w-1/2 items-center">
-          <h2 class="text-neutral-100 font-bold text-3xl mb-2 w-96">Sign in to PETMART</h2>
-          <p class="text-sm italic text-neutral-400 mb-4">"Unlock your gaming potential!"</p>
+    <section
+      class="bg-radial-dark min-h-screen flex items-center justify-center"
+    >
+      <div class="py-32 px-52 flex bg-white rounded-2xl shadow-lg max-w-5xl">
+        <div class="w-96 items-center mr-16 rounded-xl">
+          <img
+            class="rounded-xl mx-8"
+            src="../../static/assets/img/login-layout.png"
+            alt="themelogin"
+          />
+        </div>
+        <div class="w-1/2 items-center mb-4">
+          <div>
+            <img src="../../static/assets/img/logo-01.png" />
+          </div>
+          <p class="text-base font-bold text-black mb-8 w-96">
+            Đăng nhập bằng tài khoản PetMart
+          </p>
           <form action="" class="flex flex-col">
-            <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Email Address</p>
-            <input class="p-2 w-96 rounded-md border text-black" type="text" name="email" placeholder="Enter your email here">
-            <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Password</p>
-            <input class="p-2 w-96 rounded-md border text-black" type="password" name="password" placeholder="Password">
-            <a href="" class="py-2 mb-2 text-neutral-400 text-xs underline">Forgot Password?</a>
-            <button class="bg-neutral-800 rounded-sm py-2 text-neutral-100 font-medium w-96">Sign in</button>
+            <input
+              class="p-2 w-96 rounded-3xl border text-black mb-8"
+              type="text"
+              name="email"
+              placeholder="Nhập email của bạn"
+            />
+            <input
+              class="p-2 w-96 rounded-3xl border text-black"
+              type="password"
+              name="password"
+              placeholder="Nhập mật khẩu"
+            />
+            <a class="py-2 mb-2 text-neutral-400 text-xs underline"
+              >Quân mật khẩu?</a
+            >
+            <button
+              class="bg-red-600 hover:bg-red-700 rounded-3xl py-2 text-white font-medium w-96"
+            >
+              Đăng nhập
+            </button>
           </form>
           <div class="mt-5 w-60 grid text-gray-500 items-center">
-            <hr class="border-gray-500 border-solid w-96">
-          </div>
-          <div>
-            <p class="text-xs py-2text-neutral-100">Are you new? <a href="" class="font-medium underline text-neutral-100">Sign Up!</a></p>
+            <hr class="border-gray-500 border-solid w-96" />
           </div>
         </div>
       </div>
