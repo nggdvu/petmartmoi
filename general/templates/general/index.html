@@ -2,11 +2,9 @@
 
 {% block content %}
 <div>
-    <!--CAROUSEL JS  AND CSS| SwiperJS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
-    <!--HERO SECTION-->
     <div id="hero-section">
             <div class="hero-container flex justify-center px-24 mt-8">
                 <div class="themepic mt-8 mb-4 pt-10 pb-10">
@@ -15,20 +13,26 @@
                 <div class="hero-content mt-8 pt-10 pb-10 pl-20 w-[800px]">
                     <p class="text-base font-semibold mb-5">HỆ THỐNG CỬA HÀNG THÚ CƯNG</p>
                     <img src="../../../static/assets/img/logo-01.png" alt="petmart big" class="w-56">
-                    <p class="text-justify mt-5">Pet Mart là chuỗi pet shop thú cưng chuyên cung cấp đồ dùng, quần áo, thức ăn, sữa tắm, chuồng, vòng cổ xích và các phụ kiện cho Chó cảnh, Mèo cảnh, Cá cảnh. Đồng thời là địa chỉ nhận tắm spa, chăm sóc, cắt tỉa lông và trông giữ thú cưng chuyên nghiệp. Chia sẻ kinh nghiệm chăm sóc Thỏ cảnh, Chuột cảnh, Sóc cảnh, Chim cảnh, Bò sát cảnh.<br/>
+                    <p class="text-justify mt-5">Pet Mart là chuỗi pet shop thú cưng chuyên cung cấp đồ dùng, quần áo, thức ăn, sữa tắm, 
+                        chuồng, vòng cổ xích và các phụ kiện cho Chó cảnh, Mèo cảnh, Cá cảnh. Đồng thời là địa chỉ nhận tắm spa, chăm sóc, 
+                        cắt tỉa lông và trông giữ thú cưng chuyên nghiệp. Chia sẻ kinh nghiệm chăm sóc Thỏ cảnh, Chuột cảnh, Sóc cảnh, Chim 
+                        cảnh, Bò sát cảnh.<br/>
                         <br/>
-                        Thành lập vào năm 2012, tới nay Pet Mart đã có mặt ở hầu hết các tỉnh, thành trên cả nước. Đặc biệt là các thành phố lớn như Hà Nội, TP. HCM, Đà Nẵng... Đây cũng chính là hệ thống cửa hàng thú cưng lớn nhất trên cả nước.<br/>
+                        Thành lập vào năm 2012, tới nay Pet Mart đã có mặt ở hầu hết các tỉnh, thành trên cả nước. Đặc biệt là các thành phố 
+                        lớn như Hà Nội, TP. HCM, Đà Nẵng... Đây cũng chính là hệ thống cửa hàng thú cưng lớn nhất trên cả nước.<br/>
                         <br/>
-                        Với chất lượng dịch vụ tốt nhất, luôn được khách hàng tin tưởng, Pet Mart sẽ là điểm đến lý tưởng và tuyệt vời dành cho vật nuôi.</p>
+                        Với chất lượng dịch vụ tốt nhất, luôn được khách hàng tin tưởng, Pet Mart sẽ là điểm đến lý tưởng và tuyệt vời dành 
+                        cho vật nuôi.</p>
                         <div class="flex md:flex">
-                            <a href="{{ url_for('products.product_detail', product_id=products_hero_section.id) }}" 
+                            <button href={{ url_for('products.index') }}
                             class="block mt-5 mr-2 w-52 h-10 text-black
                             font-bold py-2 px-8 text-center rounded-[35px] border-black border-2  hover:text-white hover:bg-primaryColor
-                           transition-all duration-200">Đi tới cửa hàng</a>
-                           <a href="{{ url_for('products.product_detail', product_id=products_hero_section.id) }}" 
+                           transition-all duration-200">Đi tới cửa hàng</button>
+                           <button 
                             class="block mt-5 mr-2 w-[200px] min-h-12 text-black
                             font-bold py-2 pl-8 px-8 text-center hover:text-primaryColor
-                           transition-all duration-200">Liên hệ tư vấn</a>
+                           transition-all duration-200">Liên hệ tư vấn</button> 
+                            
                              
                         </div>
                 </div>
