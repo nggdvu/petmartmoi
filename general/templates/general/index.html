@@ -24,10 +24,10 @@
                         Với chất lượng dịch vụ tốt nhất, luôn được khách hàng tin tưởng, Pet Mart sẽ là điểm đến lý tưởng và tuyệt vời dành 
                         cho vật nuôi.</p>
                         <div class="flex md:flex">
-                            <button href={{ url_for('products.index') }}
+                            <a href={{ url_for('products.index') }}
                             class="block mt-5 mr-2 w-52 h-10 text-black
-                            font-bold py-2 px-8 text-center rounded-[35px] border-black border-2  hover:text-white hover:bg-primaryColor
-                           transition-all duration-200">Đi tới cửa hàng</button>
+                            font-bold py-2 px-8 text-center rounded-[35px] border-black border-2 shadow-md hover:text-white hover:bg-primaryColor
+                            hover:border-white transition-all duration-200">Đi tới cửa hàng</a>
                            <button 
                             class="block mt-5 mr-2 w-[200px] min-h-12 text-black
                             font-bold py-2 pl-8 px-8 text-center hover:text-primaryColor
@@ -51,7 +51,7 @@
             <h1 class="text-3xl font-semibold">DỊCH VỤ</h1>
             <a class="block text-black
             w-36 h-10 font-semibold text-center leading-10 rounded-[35px]
-             hover:text-primaryColor cursor-pointer transition-all duration-200 italic"> Xem thêm</a>
+             hover:text-primaryColor cursor-pointer transition-all duration-200 italic">Xem thêm</a>
         </div>
         <div>
             <img src="static/assets/img/dichvu3.png" alt="dichvu" class="dichvu cursor-pointer mt-8 px-24">
@@ -67,7 +67,7 @@
             <h1 class="text-3xl font-bold">BÁN CHẠY</h1>
             <a href={{ url_for('products.best_sellers') }} class="block text-black
             w-36 h-10 font-semibold text-center leading-10 rounded-[35px]
-             hover:text-primaryColor cursor-pointer transition-all duration-200 italic"> Xem thêm</a>
+             hover:text-primaryColor cursor-pointer transition-all duration-200 italic">Xem thêm</a>
         </div>
         <div class="carousel-container swiper w-full" style="padding: 0 96px;">
             <div class="product-carousel mt-16 overflow-hidden" style="width: 100%;">
