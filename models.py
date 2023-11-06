@@ -90,7 +90,7 @@ class products(db.Model):
         return f'products {self.id} {self.name} {self.description} {self.price} {self.image} {self.purchase_number} {self.brand_id} {self.order} {self.purchases}'
 
     def purchased_success(self):
-        self.purchase_number += 1
+        self.purchase_number = int(self.purchase_number) + 1
         db.session.commit()
         
 class Orders(db.Model):

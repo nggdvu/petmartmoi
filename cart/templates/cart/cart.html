@@ -4,7 +4,7 @@
 <div class="px-48 mt-12 flex justify-between gap-10">
     <div class="my-cart grow">
         <h3 class="mb-12 text-3xl font-bold">Giỏ hàng</h3>
-        <hr class="opacity-40">Thêm
+        <hr class="opacity-40">
         <br>
         {% if cart %}
         <div class="cart-products-container w-full">
@@ -62,28 +62,28 @@
         <hr class="opacity-40">
         <div class="pt-5 pb-3">
             <div class="py-2 flex justify-between">
-                <span>Subtotal</span>
+                <span>Giá trị đơn hàng</span>
                 <span>{{ subtotal | currency }}</span>
             </div>
             <div class="py-2 flex justify-between">
-                <span>Sale Discount</span>
+                <span>Mã giảm giá</span>
                 <span>{{ discount | currency }}</span>
             </div>
             <div class="py-2 flex justify-between">
-                <span>Taxes (5%)</span>
+                <span>Phí vận chuyển</span>
                 <span>{{ taxes | currency }}</span>
             </div>
         </div>
         <hr class="opacity-40">
-        <div class="font-semibold pt-4 pb-3 flex justify-between">
-            <span>Total</span>
+        <div class="font-semibold pt-4 pb-3 flex text-red-600 justify-between">
+            <span>Tổng giá trị</span>
             <span>{{ total | currency }}</span>
         </div>
         <form method="POST" id="checkout_form">
             <button type="button" class="block mt-4 mx-auto bg-primaryColor text-white h-12 w-full font-bold rounded-3xl
             hover:opacity-70 transition-all duration-200"
             onclick="handleCheckout()">
-                Checkout
+                Xác nhận thanh toán
             </button>
         </form>
     </div>
