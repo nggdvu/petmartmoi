@@ -131,7 +131,7 @@ def best_sellers():
 def featured_recommended():
     from models import products, Platform, Genre
 
-    pageTitle = 'FEATURED AND RECOMMENDED'
+    pageTitle = 'DỊCH VỤ'
     platforms_query = Platform.query.all()
     genres_query = Genre.query.all()
 

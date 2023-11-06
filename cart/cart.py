@@ -58,9 +58,6 @@ def cart_add():
         if order_exist:
             found = True
             flash(f'Sản phẩm này đã nằm trong giỏ hàng của bạn', category=MessageType['ERROR'].value)
-        elif purchase_exist:
-            found = True
-            flash(f'Sản phẩm này đã được thanh toán', category=MessageType['ERROR'].value)
         if not found:
             newOrder = Orders(
                 date_of_order = datetime.now(),
