@@ -9,28 +9,29 @@
         {% if cart %}
         <div class="cart-products-container w-full">
             {% for products in cart %}
-            <div class="cart-product h-56 flex justify-between gap-6 pl-6 pr-4 py-5 mb-4 bg-white hover:bg-[whitesmoke] hover:text-slate-600 rounded-sm">
+            <div class="cart-product h-44 flex justify-between gap-6 pl-6 pr-4 py-5 mb-4 shadow-xl rounded-3xl bg-white hover:bg-[whitesmoke] hover:text-slate-600">
                 <div class="flex justify-between grow">
                     <div class="product-info flex">
-                        <div class="h-44 rounded-md overflow-hidden inline-block mr-5">
+                        <div class="h-36 rounded-md overflow-hidden inline-block mr-5">
                             <img src={{ products.image }} 
-                            style="aspect-ratio: 9/12" 
-                            class="object-cover h-full rounded-sm">
+                            class="object-cover h-full rounded-sm aspect-square">
                         </div>
                         <div class="flex flex-col justify-between pb-1">
                             <div>
-                                <h4 class="text-lg">{{ products.name }}</h4>
-
+                                <div>
+                                    <h4 class="text-base font-bold">{{ products.name }}</h4>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="font-bold text-xl text-red-600">{{ products.price | currency }}</p>
+                                </div>
                             </div>
                             <div class="flex items-center gap-3">
-                                <p class="text-sm">Self-Refundable</p>
-                                <div>
-                                    <i class="fa-regular fa-circle-question text-sm text-gray-500"></i>
-                                </div>
+                                
+                                <p class="text-sm font-medium text-blue-600 italic">Thanh toán VNPAY để nhận mã giảm giá 10% cho đơn hàng đầu tiên</p>
                             </div>
                         </div>
                     </div>
-                    <p class="font-medium">{{ products.price | currency }}</p>
+                    
                 </div>
                 <div>
                     <form id="delete_form-{{products.id}}" action={{ url_for('cart.cart_remove', products_id=products.id) }} method="POST">
