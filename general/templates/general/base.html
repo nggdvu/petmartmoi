@@ -43,7 +43,7 @@
               <a href={{ url_for('products.index') }} class="px-1 pt-8">SIÊU THỊ THÚ CƯNG</a>
             </li>
             <li class="nav-item hover:text-primaryColor font-semibold mx-3 transition-all">
-              <a href={{ url_for('cart.index') }} class="px-1 pt-8">HỆ THỐNG CỬA HÀNG</a>
+              <a href="/shops/shops.html" class="px-1 pt-8">HỆ THỐNG CỬA HÀNG</a>
             </li>
             <li class="nav-item group mx-3 transition-all relative">
               <span class="px-1 pt-8 group-hover:text-primaryColor cursor-pointer font-semibold
@@ -72,7 +72,7 @@
                 <a href="#" class="user-auth group md:flex items-center mr-6">
                   <i class="fa-solid fa-user-alt text-xl mr-4"></i>
                 <ul class="subnav absolute hidden group-hover:block w-60
-                top-[120%] -right-8 mt-2 bg-white shadow-md rounded-md overflow-hidden">
+                top-[120%] -right-8 bg-white shadow-md rounded-md overflow-hidden">
                   <li class="subnav-item hover:bg-[whitesmoke] hover:text-slate-600 px-2 py-2">
                     <a class="mr-8 font-bold">{{ session['current_user']['name'] }}</a>
                   </li>

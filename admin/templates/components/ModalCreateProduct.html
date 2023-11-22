@@ -1,7 +1,7 @@
 <button
-  class="modal-open fixed bottom-10 left-10 z-40 bg-black/30 backdrop-blur-lg border-2 border-gray-500 hover:border-primaryColor hover:text-primaryColor font-medium py-2 px-4 rounded-full"
+  class="modal-open fixed bottom-10 left-10 z-40 bg-red-600 text-white hover:bg-red-700 font-bold shadow-2xl py-2 px-4 rounded-full"
 >
-  + Add new product
+  Thêm sản phẩm mới
 </button>
 
 <!--Modal-->
@@ -9,11 +9,11 @@
   class="z-50 modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
 >
   <div
-    class="modal-overlay absolute w-full h-full bg-gray-900 opacity-60"
+    class="modal-overlay absolute w-full h-full bg-gray-600 opacity-60"
   ></div>
 
   <div
-    class="modal-container bg-black/30 backdrop-blur-xl w-[70%] max-w-[800px] mx-auto rounded shadow-lg z-50 overflow-y-auto"
+    class="modal-container bg-white w-[70%] max-w-[800px] mx-auto rounded shadow-3xl z-50 overflow-y-auto"
   >
     <div
       class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50"
@@ -23,7 +23,7 @@
     <div class="modal-content py-4 text-left px-6 w-full">
       <!--Title-->
       <div class="flex justify-between items-center pb-3">
-        <p class="text-3xl font-bold">Create New Product</p>
+        <p class="text-2xl font-bold">Thêm sản phẩm mới</p>
         <div class="modal-close cursor-pointer z-50">
           <svg
             class="fill-current text-black"
@@ -44,7 +44,7 @@
         <div class="flex flex-row w-full justify-center">
           <div class="w-full">
             <div class="flex flex-col mb-3">
-              <label for="name" class="my-2 font-bold">Name</label>
+              <label for="name" class="my-2 font-bold">TÊN SẢN PHẨM</label>
               <input
                 required
                 id="name"
@@ -52,12 +52,12 @@
                 maxlength="150"
                 name="name"
                 type="text"
-                class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-lg border-2 border-primaryColor"
+                class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-3xl border-[1px] border-gray-600"
               />
             </div>
             <div class="flex flex-col mb-3">
               <label for="description" class="my-2 font-bold"
-                >Description</label
+                >MÔ TẢ SẢN PHẨM</label
               >
               <textarea
                 required
@@ -65,55 +65,53 @@
                 id="description"
                 maxlength="1024"
                 rows="3"
-                class="bg-transparent max-w-[400px] outline-none resize-none border-2 border-primaryColor rounded-lg p-2"
+                class="bg-transparent max-w-[400px] outline-none resize-none border-[1px] border-gray-600 rounded-3xl p-2"
               ></textarea>
             </div>
             <div class="flex flex-col mb-3">
-              <label for="price" class="my-2 font-bold">Price (vnđ)</label>
+              <label for="price" class="my-2 font-bold">ĐƠN GIÁ</label>
               <input
                 required
                 name="price"
                 id="price"
                 min="0"
                 type="number"
-                class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-lg border-2 border-primaryColor"
+                class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-3xl border-[1px] border-gray-600"
               />
             </div>
             <div class="flex flex-col mb-3">
-              <label for="image_url" class="my-2 font-bold">Image url</label>
+              <label for="image_url" class="my-2 font-bold">LINK ẢNH</label>
               <input
                 required
                 id="image_url"
                 name="image_url"
                 maxlength="1024"
                 type="text"
-                class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-lg border-2 border-primaryColor"
+                class="bg-transparent w-full max-w-[400px] p-2 h-10 outline-none rounded-3xl border-[1px] border-gray-600"
               />
             </div>
           </div>
           <div class="w-10"></div>
           <div class="w-full">
             <div class="flex flex-col mb-3">
-              <label for="brand" class="my-2 font-bold">brand</label>
+              <label for="brand" class="my-2 font-bold">THƯƠNG HIỆU</label>
               <select
                 required
                 name="brand"
                 id="brand"
-                class="bg-transparent border-2 border-primaryColor p-2 h-10 outline-none rounded-lg"
+                class="bg-transparent border-[1px] border-gray-600 p-2 h-10 outline-none rounded-3xl"
               >
-                <option value="" hidden>Choose brand</option>
+                <option value="" hidden>Chọn thương hiệu</option>
                 {% for brand in brands_query%}
-                <option value="{{brand.id}}" class="bg-secondaryColor">
+                <option value="{{brand.id}}" class="bg-white">
                   {{brand.brand_name}}
                 </option>
                 {% endfor %}
               </select>
             </div>
 
-            <div
-              class="flex flex-col mb-3 rounded-lg border-2 border-primaryColor p-2"
-            >
-              <label class="my-1 font-bold">Platform</label>
+            <div class="flex flex-col mb-3 rounded-3xl p-2">
+              <label class="my-1 font-bold">PHÂN LOẠI</label>
               {% for platform in platforms_query%}
               <div class="flex items-center">
                 <input
@@ -130,9 +128,9 @@
             </div>
 
             <div
-              class="flex flex-col mb-3 rounded-lg border-2 border-primaryColor p-2 max-h-[200px] overflow-auto"
+              class="flex flex-col mb-3 rounded-3xl p-2 max-h-[200px] overflow-auto"
             >
-              <label class="my-1 font-bold">Genre</label>
+              <label class="my-1 font-bold">THỂ LOẠI</label>
               {% for genre in genres_query%}
               <div class="flex items-center">
                 <input
@@ -152,16 +150,16 @@
         <!--Footer-->
         <div class="flex justify-end pt-2">
           <button
-            onclick="handleSubmit()"
-            type="submit"
-            class="px-4 bg-transparent p-3 rounded-lg text-primaryColor hover:bg-gray-100 hover:text-primaryColor duration-200 mr-2"
+            class="px-4 bg-transparent p-3 rounded-3xl text-primaryColor hover:bg-gray-100 hover:text-primaryColor duration-200 mr-2"
           >
-            Create
+            Hủy bỏ
           </button>
           <button
-            class="modal-close px-4 duration-200 bg-pr p-3 bg-red-500 rounded-lg text-white hover:bg-red-700"
+            onclick="handleSubmit()"
+            type="submit"
+            class="modal-close px-4 duration-200 bg-pr p-3 bg-red-500 rounded-3xl text-white hover:bg-red-700"
           >
-            Close
+            Lưu sản phẩm
           </button>
         </div>
       </form>
@@ -206,5 +204,4 @@
     modal.classList.toggle("pointer-events-none");
     body.classList.toggle("modal-active");
   }
-
 </script>
