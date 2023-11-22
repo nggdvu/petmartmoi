@@ -1,7 +1,7 @@
 <button
   class="modal-open fixed bottom-10 left-10 z-40 bg-black/30 backdrop-blur-lg border-2 border-gray-500 hover:border-primaryColor hover:text-primaryColor font-medium py-2 px-4 rounded-full"
 >
-  + Add new game
+  + Add new product
 </button>
 
 <!--Modal-->
@@ -94,17 +94,17 @@
           <div class="w-10"></div>
           <div class="w-full">
             <div class="flex flex-col mb-3">
-              <label for="publisher" class="my-2 font-bold">Publisher</label>
+              <label for="brand" class="my-2 font-bold">brand</label>
               <select
                 required
-                name="publisher"
-                id="publisher"
+                name="brand"
+                id="brand"
                 class="bg-transparent border-2 border-primaryColor p-2 h-10 outline-none rounded-lg"
               >
-                <option value="" hidden>Choose publisher</option>
-                {% for publisher in publishers_query%}
-                <option value="{{publisher.id}}" class="bg-secondaryColor">
-                  {{publisher.publisher_name}}
+                <option value="" hidden>Choose brand</option>
+                {% for brand in brands_query%}
+                <option value="{{brand.id}}" class="bg-secondaryColor">
+                  {{brand.brand_name}}
                 </option>
                 {% endfor %}
               </select>
